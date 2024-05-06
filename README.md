@@ -1,16 +1,28 @@
-# golden_raspberry_awards
+# Golden Raspberry Awards
 
-A new Flutter project.
+## Descrição
 
-## Getting Started
+Golden Raspberry Awards é um APP que lista os indicados e vencedores da categoria **Pior Filme**. App é um teste para a[ TEXO IT](https://www.texoit.com)
 
-This project is a starting point for a Flutter application.
+## Requisitos Funcionais
 
-A few resources to get you started if this is your first Flutter project:
+## Dashboard
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- [ ] Mostrar em uma tabela os anos que tiveram mais de um vencedor;
+- [ ] Mostrar em uma tabela os três estúdios com mais vitórias;
+- [ ] Mostrar em tabelas os produtores com maior e menor intervalo entre vitórias;
+- [ ] Exibir em tabela os vencedores de determinado ano selecionado através de um campo de busca;
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Lista de Filmes
+
+- [ ] Listar filmes com paginação;
+- [ ] Filtrar por ano;
+- [ ] Filtrar por vencedor;
+
+## Requisitos não funcionais
+
+- [x] ~~Responsividade mínima 768x1280;~~
+- [ ] Qualidade de código (legibilidade, lógica, indentação);
+- [ ] Boas práticas de implementação;
+- [ ] Documentação.
+- [ ] O código-fonte deve ser disponibilizado em um repositório git (Github, Gitlab, Bitbucket, etc).
