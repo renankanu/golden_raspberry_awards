@@ -24,16 +24,16 @@ void main() {
         Producer(
           producer: 'Producer 1',
           interval: 200,
-          previousYear: 2005,
-          followingYear: 2006,
+          followingWin: 2005,
+          previousWin: 2003,
         )
       ],
       max: [
         Producer(
           producer: 'Producer 2',
           interval: 2,
-          previousYear: 2005,
-          followingYear: 2006,
+          followingWin: 2005,
+          previousWin: 2003,
         )
       ],
     );
