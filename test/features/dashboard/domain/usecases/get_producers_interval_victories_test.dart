@@ -12,12 +12,12 @@ import 'get_producers_interval_victories_test.mocks.dart';
 @GenerateMocks([DashboardRepository])
 void main() {
   late MockDashboardRepository repository;
-  late GetProducersIntervalVictories usecase;
+  late GetProducersIntervalVictoriesUseCase usecase;
   late final List<ProducersIntervalVictories> tProducerIntervalVictory;
 
   setUp(() {
     repository = MockDashboardRepository();
-    usecase = GetProducersIntervalVictories(repository);
+    usecase = GetProducersIntervalVictoriesUseCase(repository);
     tProducerIntervalVictory = [
       const ProducersIntervalVictories(
         producer: 'producer one',

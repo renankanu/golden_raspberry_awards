@@ -12,12 +12,12 @@ import 'get_top_winning_studios_test.mocks.dart';
 @GenerateMocks([DashboardRepository])
 void main() {
   late MockDashboardRepository repository;
-  late GetTopWinningStudios usecase;
+  late GetTopWinningStudiosUseCase usecase;
   late final List<TopWinningStudios> tTopWinningStudios;
 
   setUp(() {
     repository = MockDashboardRepository();
-    usecase = GetTopWinningStudios(repository);
+    usecase = GetTopWinningStudiosUseCase(repository);
     tTopWinningStudios = [
       const TopWinningStudios(
         studio: 'studio one',

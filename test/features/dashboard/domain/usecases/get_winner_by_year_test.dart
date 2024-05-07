@@ -12,12 +12,12 @@ import 'get_winner_by_year_test.mocks.dart';
 @GenerateMocks([DashboardRepository])
 void main() {
   late MockDashboardRepository repository;
-  late GetWinnerByYear usecase;
+  late GetWinnerByYearUseCase usecase;
   late final List<WinnersByYear> tWinnersByYear;
 
   setUp(() {
     repository = MockDashboardRepository();
-    usecase = GetWinnerByYear(repository);
+    usecase = GetWinnerByYearUseCase(repository);
     tWinnersByYear = [
       const WinnersByYear(
         id: 1,

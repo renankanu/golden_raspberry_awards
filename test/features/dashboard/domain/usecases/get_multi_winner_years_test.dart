@@ -12,12 +12,12 @@ import 'get_multi_winner_years_test.mocks.dart';
 @GenerateMocks([DashboardRepository])
 void main() {
   late MockDashboardRepository repository;
-  late GetMultiWinnerYears usecase;
+  late GetMultiWinnerYearsUseCase usecase;
   late final List<MultiWinnerYear> tMultiWinnerYear;
 
   setUp(() {
     repository = MockDashboardRepository();
-    usecase = GetMultiWinnerYears(repository);
+    usecase = GetMultiWinnerYearsUseCase(repository);
     tMultiWinnerYear = [
       const MultiWinnerYear(year: 2019, wins: 2),
       const MultiWinnerYear(year: 2018, wins: 3),

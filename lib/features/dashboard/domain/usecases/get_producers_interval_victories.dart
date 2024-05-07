@@ -4,10 +4,10 @@ import '../../../../core/core.dart';
 import '../entities/entities.dart';
 import '../repositories/dashboard_repository.dart';
 
-class GetProducersIntervalVictories {
+class GetProducersIntervalVictoriesUseCase {
   final DashboardRepository repository;
 
-  GetProducersIntervalVictories(this.repository);
+  GetProducersIntervalVictoriesUseCase(this.repository);
 
   Future<Either<Failure, List<ProducersIntervalVictories>>> call() async {
     return await repository.getProducersIntervalVictories();

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:golden_raspberry_awards/features/dashboard/presentation/widgets/interval_victory_container.dart';
 import 'package:golden_raspberry_awards/features/dashboard/presentation/widgets/search_winner_year_container.dart';
-import 'package:golden_raspberry_awards/features/dashboard/presentation/widgets/top_studios_container.dart';
 import 'package:golden_raspberry_awards/features/dashboard/presentation/widgets/year_multi_winner_container.dart';
+
+import '../widgets/interval_victory_container.dart';
+import '../widgets/top_studios_container.dart';
 
 class DashboardView extends StatelessWidget {
   const DashboardView({super.key});

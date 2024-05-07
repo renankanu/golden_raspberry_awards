@@ -11,8 +11,18 @@ final ThemeData appTheme = ThemeData(
     color: AppColors.mineShaft,
     thickness: 0.5,
   ),
+  textSelectionTheme: const TextSelectionThemeData(
+    cursorColor: AppColors.mineShaft,
+    selectionColor: AppColors.mineShaft,
+    selectionHandleColor: AppColors.mineShaft,
+  ),
   inputDecorationTheme: const InputDecorationTheme(
-    border: OutlineInputBorder(
+    labelStyle: TextStyle(
+      color: AppColors.mineShaft,
+      fontSize: 16,
+      fontWeight: FontWeight.w400,
+    ),
+    enabledBorder: OutlineInputBorder(
       borderSide: BorderSide(
         color: AppColors.mineShaft,
         width: 0.5,
