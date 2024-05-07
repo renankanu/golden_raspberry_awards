@@ -8,8 +8,8 @@ class TopWinningStudiosModel extends TopWinningStudios {
 
   factory TopWinningStudiosModel.fromJson(Map<String, dynamic> json) {
     return TopWinningStudiosModel(
-      studio: json['studio'],
-      wins: json['wins'],
+      studio: json['name'],
+      wins: json['winCount'],
     );
   }
 }

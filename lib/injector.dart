@@ -8,6 +8,8 @@ import 'package:golden_raspberry_awards/features/dashboard/domain/usecases/get_w
 
 import 'features/dashboard/data/datasource/remote_datasource.dart';
 import 'features/dashboard/domain/repositories/dashboard_repository.dart';
+import 'features/dashboard/presentation/cubit/multi_winner_years/multi_winner_years_cubit.dart';
+import 'features/dashboard/presentation/cubit/top_studio_awards/top_studio_awards_cubit.dart';
 
 final injector = GetIt.instance;
 
@@ -28,4 +30,10 @@ void init() {
   //datasources
   injector.registerLazySingleton<RemoteDatasource>(
       () => RemoteDatasourceImpl(dioClient: injector()));
+
+  //cubits
+  injector.registerLazySingleton<MultiWinnerYearsCubit>(
+      () => MultiWinnerYearsCubit(injector()));
+  injector.registerLazySingleton<TopStudioAwardsCubit>(
+      () => TopStudioAwardsCubit(injector()));
 }

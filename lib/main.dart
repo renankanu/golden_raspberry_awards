@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:golden_raspberry_awards/core/core.dart';
 import 'package:golden_raspberry_awards/features/dashboard/presentation/views/core_view.dart';
 
-import 'features/dashboard/presentation/cubit/get_multi_winner_years/get_multi_winner_years_cubit.dart';
+import 'features/dashboard/presentation/cubit/multi_winner_years/multi_winner_years_cubit.dart';
 import 'injector.dart' as di;
 
 void main() {
@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (_) => di.injector<GetMultiWinnerYearsCubit>(),
+          create: (_) => di.injector<MultiWinnerYearsCubit>(),
         )
       ],
       child: MaterialApp(

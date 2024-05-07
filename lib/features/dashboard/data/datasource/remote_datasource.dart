@@ -17,10 +17,10 @@ class RemoteDatasourceImpl implements RemoteDatasource {
 
   @override
   Future<List<MultiWinnerYearModel>> getMultiWinnerYears() async {
-    final response = await dioClient.get('/multi_winner_years');
+    final response = await dioClient.get(Urls.multipleWinner);
     if (response.statusCode == 200) {
-      final List<dynamic> data = response.data;
-      return data.map((e) => MultiWinnerYearModel.fromJson(e)).toList();
+      final List<dynamic> data = response.data['years'];
+      return data.map((item) => MultiWinnerYearModel.fromJson(item)).toList();
     } else {
       throw ServerException();
     }
@@ -53,10 +53,10 @@ class RemoteDatasourceImpl implements RemoteDatasource {
 
   @override
   Future<List<TopWinningStudiosModel>> getTopWinningStudios() async {
-    final response = await dioClient.get('/top_winning_studios');
+    final response = await dioClient.get(Urls.studioWins);
     if (response.statusCode == 200) {
-      final List<dynamic> data = response.data;
-      return data.map((e) => TopWinningStudiosModel.fromJson(e)).toList();
+      final List<dynamic> data = response.data['studios'];
+      return data.map((item) => TopWinningStudiosModel.fromJson(item)).toList();
     } else {
       throw ServerException();
     }
