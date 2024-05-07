@@ -16,7 +16,7 @@ class ProducersIntervalWinsLoading extends ProducersIntervalWinsState {
 }
 
 class ProducersIntervalWinsLoaded extends ProducersIntervalWinsState {
-  final List<ProducersIntervalWins> producersIntervalWins;
+  final ProducersIntervalWins producersIntervalWins;
   const ProducersIntervalWinsLoaded(this.producersIntervalWins);
 
   @override

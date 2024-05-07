@@ -1,23 +1,18 @@
 import 'package:equatable/equatable.dart';
+import 'package:golden_raspberry_awards/features/dashboard/domain/entities/producer.dart';
 
 class ProducersIntervalWins extends Equatable {
-  final String producer;
-  final int interval;
-  final int previousYear;
-  final int followingYear;
+  final List<Producer> min;
+  final List<Producer> max;
 
   const ProducersIntervalWins({
-    required this.producer,
-    required this.interval,
-    required this.previousYear,
-    required this.followingYear,
+    required this.min,
+    required this.max,
   });
 
   @override
   List<Object?> get props => [
-        producer,
-        interval,
-        previousYear,
-        followingYear,
+        min,
+        max,
       ];
 }

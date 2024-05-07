@@ -1,19 +1,16 @@
 import '../../domain/entities/entities.dart';
+import 'producer_model.dart';
 
 class ProducersIntervalVictoriesModel extends ProducersIntervalWins {
   const ProducersIntervalVictoriesModel({
-    required super.producer,
-    required super.interval,
-    required super.previousYear,
-    required super.followingYear,
+    required super.min,
+    required super.max,
   });
 
   factory ProducersIntervalVictoriesModel.fromJson(Map<String, dynamic> json) {
     return ProducersIntervalVictoriesModel(
-      producer: json['producer'],
-      interval: json['interval'],
-      previousYear: json['previousYear'],
-      followingYear: json['followingYear'],
+      min: (json['min'] as List).map((e) => ProducerModel.fromJson(e)).toList(),
+      max: (json['max'] as List).map((e) => ProducerModel.fromJson(e)).toList(),
     );
   }
 }

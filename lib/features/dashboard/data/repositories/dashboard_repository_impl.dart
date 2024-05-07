@@ -22,7 +22,7 @@ class DashboardRepositoryImpl implements DashboardRepository {
   }
 
   @override
-  Future<Either<Failure, List<ProducersIntervalWins>>>
+  Future<Either<Failure, ProducersIntervalWins>>
       getProducersIntervalVictories() async {
     try {
       final result = await remoteDatasource.getProducersIntervalVictories();
