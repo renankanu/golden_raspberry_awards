@@ -28,17 +28,37 @@ class RemoteDatasourceImpl implements RemoteDatasource {
 
   @override
   Future<List<ProducersIntervalVictoriesModel>>
-      getProducersIntervalVictories() {
-    throw UnimplementedError();
+      getProducersIntervalVictories() async {
+    final response = await dioClient.get('/producers_interval_victories');
+    if (response.statusCode == 200) {
+      final List<dynamic> data = response.data;
+      return data
+          .map((e) => ProducersIntervalVictoriesModel.fromJson(e))
+          .toList();
+    } else {
+      throw ServerException();
+    }
   }
 
   @override
-  Future<List<WinnersByYearModel>> getWinnersByYear() {
-    throw UnimplementedError();
+  Future<List<WinnersByYearModel>> getWinnersByYear() async {
+    final response = await dioClient.get('/winners_by_year');
+    if (response.statusCode == 200) {
+      final List<dynamic> data = response.data;
+      return data.map((e) => WinnersByYearModel.fromJson(e)).toList();
+    } else {
+      throw ServerException();
+    }
   }
 
   @override
-  Future<List<TopWinningStudiosModel>> getTopWinningStudios() {
-    throw UnimplementedError();
+  Future<List<TopWinningStudiosModel>> getTopWinningStudios() async {
+    final response = await dioClient.get('/top_winning_studios');
+    if (response.statusCode == 200) {
+      final List<dynamic> data = response.data;
+      return data.map((e) => TopWinningStudiosModel.fromJson(e)).toList();
+    } else {
+      throw ServerException();
+    }
   }
 }
