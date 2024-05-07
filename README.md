@@ -26,3 +26,7 @@ Golden Raspberry Awards é um APP que lista os indicados e vencedores da categor
 - [ ] Boas práticas de implementação;
 - [ ] Documentação.
 - [ ] O código-fonte deve ser disponibilizado em um repositório git (Github, Gitlab, Bitbucket, etc).
+
+## Arquitetura
+
+- Programação funcional com Either, para o tratamento de erros
