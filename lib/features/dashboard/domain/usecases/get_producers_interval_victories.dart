@@ -9,7 +9,7 @@ class GetProducersIntervalVictoriesUseCase {
 
   GetProducersIntervalVictoriesUseCase(this.repository);
 
-  Future<Either<Failure, List<ProducersIntervalVictories>>> call() async {
+  Future<Either<Failure, List<ProducersIntervalWins>>> call() async {
     return await repository.getProducersIntervalVictories();
   }
 }

@@ -7,7 +7,7 @@ import '../../domain/entities/entities.dart';
 class TopStudiosContainer extends StatelessWidget {
   const TopStudiosContainer({super.key});
 
-  List<TopWinningStudios> _getTopThreeStudios(List<TopWinningStudios> studios) {
+  List<TopWinningStudios> _getTopStudios(List<TopWinningStudios> studios) {
     studios.sort((previous, next) => next.wins.compareTo(previous.wins));
     return studios.take(3).toList();
   }
@@ -31,7 +31,7 @@ class TopStudiosContainer extends StatelessWidget {
               TopStudioAwardsLoading() => const CircularProgressIndicator(),
               TopStudioAwardsLoaded() => Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: _getTopThreeStudios(state.topStudioAwards).map((e) {
+                  children: _getTopStudios(state.topStudioAwards).map((item) {
                     return Container(
                       constraints: const BoxConstraints(minWidth: 200),
                       padding: const EdgeInsets.all(16),
@@ -41,9 +41,10 @@ class TopStudiosContainer extends StatelessWidget {
                         borderRadius: BorderRadius.circular(8),
                       ),
                       child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(e.studio),
-                          Text('${e.wins} filmes'),
+                          Text('🎭 ${item.studio}'),
+                          Text('🎬 ${item.wins} filmes'),
                         ],
                       ),
                     );

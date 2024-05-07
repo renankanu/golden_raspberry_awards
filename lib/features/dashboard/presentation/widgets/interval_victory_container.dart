@@ -1,27 +1,38 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:golden_raspberry_awards/core/constants/app_colors.dart';
+import 'package:golden_raspberry_awards/features/dashboard/presentation/cubit/producers_interval_wins/producers_interval_wins_cubit.dart';
 
 class IntervalVictoryContainer extends StatelessWidget {
   const IntervalVictoryContainer({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          'Intervalo de premiações',
-          style: TextStyle(
-            fontSize: 24,
-            fontWeight: FontWeight.w600,
+    return BlocBuilder<ProducersIntervalWinsCubit, ProducersIntervalWinsState>(
+        builder: (context, state) {
+      return Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Text(
+            'Intervalo de premiações',
+            style: TextStyle(
+              fontSize: 24,
+              fontWeight: FontWeight.w600,
+            ),
           ),
-        ),
-        SizedBox(height: 12),
-        IntervalWidget(),
-        SizedBox(height: 24),
-        IntervalWidget(),
-      ],
-    );
+          switch (state) {
+            ProducersIntervalWinsLoading() => const CircularProgressIndicator(),
+            ProducersIntervalWinsLoaded() => Container(),
+            ProducersIntervalWinsError() => const Text('Erro ao carregar'),
+            _ => const SizedBox.shrink(),
+          }
+          // SizedBox(height: 12),
+          // IntervalWidget(),
+          // SizedBox(height: 24),
+          // IntervalWidget(),
+        ],
+      );
+    });
   }
 }
 

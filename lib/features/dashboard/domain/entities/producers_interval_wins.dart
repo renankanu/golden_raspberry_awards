@@ -1,12 +1,12 @@
 import 'package:equatable/equatable.dart';
 
-class ProducersIntervalVictories extends Equatable {
+class ProducersIntervalWins extends Equatable {
   final String producer;
   final int interval;
   final int previousYear;
   final int followingYear;
 
-  const ProducersIntervalVictories({
+  const ProducersIntervalWins({
     required this.producer,
     required this.interval,
     required this.previousYear,

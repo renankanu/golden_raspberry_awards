@@ -13,26 +13,26 @@ import 'get_producers_interval_victories_test.mocks.dart';
 void main() {
   late MockDashboardRepository repository;
   late GetProducersIntervalVictoriesUseCase usecase;
-  late final List<ProducersIntervalVictories> tProducerIntervalVictory;
+  late final List<ProducersIntervalWins> tProducerIntervalVictory;
 
   setUp(() {
     repository = MockDashboardRepository();
     usecase = GetProducersIntervalVictoriesUseCase(repository);
     tProducerIntervalVictory = [
-      const ProducersIntervalVictories(
+      const ProducersIntervalWins(
         producer: 'producer one',
         interval: 1,
         previousYear: 2019,
         followingYear: 2020,
       ),
-      const ProducersIntervalVictories(
+      const ProducersIntervalWins(
         producer: 'producer two',
         interval: 2,
         previousYear: 2018,
         followingYear: 2019,
       ),
     ];
-    provideDummy<Either<Failure, List<ProducersIntervalVictories>>>(
+    provideDummy<Either<Failure, List<ProducersIntervalWins>>>(
         Right(tProducerIntervalVictory));
   });
 

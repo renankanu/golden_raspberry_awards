@@ -5,6 +5,7 @@ import 'package:golden_raspberry_awards/features/dashboard/domain/usecases/get_m
 import 'package:golden_raspberry_awards/features/dashboard/domain/usecases/get_producers_interval_victories.dart';
 import 'package:golden_raspberry_awards/features/dashboard/domain/usecases/get_top_winning_studios.dart';
 import 'package:golden_raspberry_awards/features/dashboard/domain/usecases/get_winner_by_year.dart';
+import 'package:golden_raspberry_awards/features/dashboard/presentation/cubit/producers_interval_wins/producers_interval_wins_cubit.dart';
 
 import 'features/dashboard/data/datasource/remote_datasource.dart';
 import 'features/dashboard/domain/repositories/dashboard_repository.dart';
@@ -36,4 +37,6 @@ void init() {
       () => MultiWinnerYearsCubit(injector()));
   injector.registerLazySingleton<TopStudioAwardsCubit>(
       () => TopStudioAwardsCubit(injector()));
+  injector.registerLazySingleton<ProducersIntervalWinsCubit>(
+      () => ProducersIntervalWinsCubit(injector()));
 }

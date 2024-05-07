@@ -5,6 +5,7 @@ import 'package:golden_raspberry_awards/features/dashboard/presentation/widgets/
 import 'package:golden_raspberry_awards/features/dashboard/presentation/widgets/year_multi_winner_container.dart';
 
 import '../cubit/multi_winner_years/multi_winner_years_cubit.dart';
+import '../cubit/producers_interval_wins/producers_interval_wins_cubit.dart';
 import '../cubit/top_studio_awards/top_studio_awards_cubit.dart';
 import '../widgets/interval_victory_container.dart';
 import '../widgets/top_studios_container.dart';
@@ -22,6 +23,9 @@ class DashboardView extends StatelessWidget {
         BlocProvider(
             create: (_) =>
                 GetIt.I<TopStudioAwardsCubit>()..getTopStudioAwards()),
+        BlocProvider(
+            create: (_) => GetIt.I<ProducersIntervalWinsCubit>()
+              ..getProducersIntervalWins()),
       ],
       child: Scaffold(
         appBar: AppBar(

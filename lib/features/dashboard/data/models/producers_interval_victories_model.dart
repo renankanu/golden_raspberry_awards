@@ -1,6 +1,6 @@
 import '../../domain/entities/entities.dart';
 
-class ProducersIntervalVictoriesModel extends ProducersIntervalVictories {
+class ProducersIntervalVictoriesModel extends ProducersIntervalWins {
   const ProducersIntervalVictoriesModel({
     required super.producer,
     required super.interval,
