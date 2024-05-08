@@ -1,0 +1,16 @@
+{
+    "years": [
+        {
+            "year": 1999,
+            "winnerCount": 1
+        },
+        {
+            "year": 2010,
+            "winnerCount": 3
+        },
+        {
+            "year": 2015,
+            "winnerCount": 2
+        }
+    ]
+}
