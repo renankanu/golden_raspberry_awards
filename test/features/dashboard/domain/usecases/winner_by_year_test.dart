@@ -23,11 +23,13 @@ void main() {
         id: 1,
         year: 2019,
         title: 'winner one',
+        isWinner: true,
       ),
       const Movie(
         id: 2,
         year: 2020,
         title: 'winner two',
+        isWinner: false,
       ),
     ];
     provideDummy<Either<Failure, List<Movie>>>(Right(tWinnersByYear));

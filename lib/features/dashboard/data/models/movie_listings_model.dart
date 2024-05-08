@@ -11,8 +11,8 @@ class MovieListingsModel extends MoviesListings {
 
   factory MovieListingsModel.fromJson(Map<String, dynamic> json) {
     return MovieListingsModel(
-      page: json['page'] as int,
-      movies: (json['movies'] as List)
+      page: json['number'] as int,
+      movies: (json['content'] as List)
           .map((e) => MovieModel.fromJson(e as Map<String, dynamic>))
           .toList(),
       totalPages: json['totalPages'] as int,
