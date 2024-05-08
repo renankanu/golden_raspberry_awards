@@ -9,7 +9,17 @@ class MovieUsecases {
 
   MovieUsecases(this.movieRepository);
 
-  Future<Either<Failure, MoviesListings>> call({required int page}) async {
-    return movieRepository.getMovies(page: page);
+  Future<Either<Failure, MoviesListings>> call({
+    required int page,
+    required int size,
+    int? year,
+    bool? isWinner,
+  }) async {
+    return movieRepository.getMovies(
+      page: page,
+      size: size,
+      year: year,
+      isWinner: isWinner,
+    );
   }
 }

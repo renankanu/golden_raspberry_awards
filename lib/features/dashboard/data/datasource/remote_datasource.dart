@@ -9,7 +9,12 @@ abstract class RemoteDatasource {
   Future<ProducersIntervalVictoriesModel> getProducersIntervalVictories();
   Future<List<MovieModel>> getWinnersByYear(int year);
   Future<List<TopWinningStudiosModel>> getTopWinningStudios();
-  Future<MovieListingsModel> getMovies({required int page});
+  Future<MovieListingsModel> getMovies({
+    required int page,
+    required int size,
+    int? year,
+    bool? isWinner,
+  });
 }
 
 class RemoteDatasourceImpl implements RemoteDatasource {
@@ -92,11 +97,19 @@ class RemoteDatasourceImpl implements RemoteDatasource {
   }
 
   @override
-  Future<MovieListingsModel> getMovies({required int page}) async {
+  Future<MovieListingsModel> getMovies({
+    required int page,
+    required int size,
+    int? year,
+    bool? isWinner,
+  }) async {
     final response = await dioClient.get(
       Urls.baseUrl,
       queryParameters: {
-        'page': '$page',
+        'page': page,
+        'size': size,
+        if (year != null) 'year': '$year',
+        if (isWinner != null) 'winner': '$isWinner',
       },
     );
     if (response.statusCode == 200) {

@@ -61,9 +61,14 @@ class DashboardRepositoryImpl implements MovieRepository {
   }
 
   @override
-  Future<Either<Failure, MoviesListings>> getMovies({required int page}) async {
+  Future<Either<Failure, MoviesListings>> getMovies({
+    required int page,
+    required int size,
+    int? year,
+    bool? isWinner,
+  }) async {
     try {
-      final result = await remoteDatasource.getMovies(page: page);
+      final result = await remoteDatasource.getMovies(page: page, size: size);
       return Right(result);
     } on ServerException {
       return const Left(ServerFailure('Server Failure in get movies'));

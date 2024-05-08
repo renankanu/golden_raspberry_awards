@@ -34,7 +34,7 @@ void main() {
     when(repository.getMovies(page: 1))
         .thenAnswer((_) async => Right(tMoviesListings));
     // act
-    final result = await usecase(page: 1);
+    final result = await usecase(page: 1, size: 1);
     // assert
     expect(result, Right(tMoviesListings));
     verify(repository.getMovies(page: 1));

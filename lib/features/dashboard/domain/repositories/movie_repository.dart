@@ -9,5 +9,10 @@ abstract class MovieRepository {
       getProducersIntervalVictories();
   Future<Either<Failure, List<Movie>>> getWinnersByYear(int year);
   Future<Either<Failure, List<TopWinningStudios>>> getTopWinningStudios();
-  Future<Either<Failure, MoviesListings>> getMovies({required int page});
+  Future<Either<Failure, MoviesListings>> getMovies({
+    required int page,
+    required int size,
+    int? year,
+    bool? isWinner,
+  });
 }
