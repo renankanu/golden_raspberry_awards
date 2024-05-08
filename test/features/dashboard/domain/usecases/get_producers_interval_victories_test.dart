@@ -26,7 +26,7 @@ void main() {
           interval: 200,
           followingWin: 2005,
           previousWin: 2003,
-        )
+        ),
       ],
       max: [
         Producer(
@@ -34,11 +34,11 @@ void main() {
           interval: 2,
           followingWin: 2005,
           previousWin: 2003,
-        )
+        ),
       ],
     );
     provideDummy<Either<Failure, ProducersIntervalWins>>(
-        Right(tProducerIntervalVictory));
+        Right(tProducerIntervalVictory),);
   });
 
   test('should get producers interval victories from the repository', () async {

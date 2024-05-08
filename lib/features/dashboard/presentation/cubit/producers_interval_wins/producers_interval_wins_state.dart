@@ -16,13 +16,19 @@ class ProducersIntervalWinsLoading extends ProducersIntervalWinsState {
 }
 
 class ProducersIntervalWinsLoaded extends ProducersIntervalWinsState {
-  final ProducersIntervalWins producersIntervalWins;
   const ProducersIntervalWinsLoaded(this.producersIntervalWins);
+
+  final ProducersIntervalWins producersIntervalWins;
 
   @override
   List<Object> get props => [producersIntervalWins];
 }
 
 class ProducersIntervalWinsError extends ProducersIntervalWinsState {
-  const ProducersIntervalWinsError();
+  const ProducersIntervalWinsError(this.message);
+
+  final String message;
+
+  @override
+  List<Object> get props => [message];
 }

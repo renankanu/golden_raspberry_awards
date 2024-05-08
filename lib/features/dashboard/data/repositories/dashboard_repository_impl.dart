@@ -17,7 +17,8 @@ class DashboardRepositoryImpl implements DashboardRepository {
       return Right(result);
     } on ServerException {
       return const Left(
-          ServerFailure('Server Failure in get multi winner years'));
+        ServerFailure('Server Failure in get multi winner years'),
+      );
     }
   }
 
@@ -29,7 +30,8 @@ class DashboardRepositoryImpl implements DashboardRepository {
       return Right(result);
     } on ServerException {
       return const Left(
-          ServerFailure('Server Failure in get producers interval victories'));
+        ServerFailure('Server Failure in get producers interval victories'),
+      );
     }
   }
 
@@ -41,7 +43,8 @@ class DashboardRepositoryImpl implements DashboardRepository {
       return Right(result);
     } on ServerException {
       return const Left(
-          ServerFailure('Server Failure in get top winning studios'));
+        ServerFailure('Server Failure in get top winning studios'),
+      );
     }
   }
 

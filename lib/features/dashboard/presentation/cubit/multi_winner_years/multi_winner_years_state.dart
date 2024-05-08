@@ -16,16 +16,18 @@ class MultiWinnerYearsLoading extends MultiWinnerYearsState {
 }
 
 class MultiWinnerYearsLoaded extends MultiWinnerYearsState {
-  final List<MultiWinnerYear> multiWinnersYears;
   const MultiWinnerYearsLoaded(this.multiWinnersYears);
+
+  final List<MultiWinnerYear> multiWinnersYears;
 
   @override
   List<Object> get props => [multiWinnersYears];
 }
 
 class MultiWinnerYearsError extends MultiWinnerYearsState {
-  final String message;
   const MultiWinnerYearsError(this.message);
+
+  final String message;
 
   @override
   List<Object> get props => [message];

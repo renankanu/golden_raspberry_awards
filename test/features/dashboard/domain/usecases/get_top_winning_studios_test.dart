@@ -29,7 +29,7 @@ void main() {
       ),
     ];
     provideDummy<Either<Failure, List<TopWinningStudios>>>(
-        Right(tTopWinningStudios));
+        Right(tTopWinningStudios),);
   });
 
   test('should get top winning studios from the repository', () async {

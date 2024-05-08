@@ -6,3 +6,8 @@ linter:
     - annotate_overrides
     - avoid_function_literals_in_foreach_calls
     - avoid_init_to_null
+    - prefer_single_quotes
+    - require_trailing_commas
+    - sort_child_properties_last
+    - sort_unnamed_constructors_first
+    - sort_constructors_first

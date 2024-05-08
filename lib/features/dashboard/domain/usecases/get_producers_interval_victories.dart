@@ -5,9 +5,9 @@ import '../entities/entities.dart';
 import '../repositories/dashboard_repository.dart';
 
 class GetProducersIntervalVictoriesUseCase {
-  final DashboardRepository repository;
-
   GetProducersIntervalVictoriesUseCase(this.repository);
+
+  final DashboardRepository repository;
 
   Future<Either<Failure, ProducersIntervalWins>> call() async {
     return await repository.getProducersIntervalVictories();

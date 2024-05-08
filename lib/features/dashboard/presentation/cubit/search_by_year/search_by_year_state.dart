@@ -16,16 +16,18 @@ class SearchByYearLoading extends SearchByYearState {
 }
 
 class SearchByYearLoaded extends SearchByYearState {
-  final List<WinnersByYear> moviesWinner;
   const SearchByYearLoaded(this.moviesWinner);
+
+  final List<WinnersByYear> moviesWinner;
 
   @override
   List<Object> get props => [moviesWinner];
 }
 
 class SearchByYearError extends SearchByYearState {
-  final String message;
   const SearchByYearError(this.message);
+
+  final String message;
 
   @override
   List<Object> get props => [message];

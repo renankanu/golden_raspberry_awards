@@ -6,10 +6,10 @@ import 'package:golden_raspberry_awards/features/dashboard/domain/usecases/get_m
 part 'multi_winner_years_state.dart';
 
 class MultiWinnerYearsCubit extends Cubit<MultiWinnerYearsState> {
-  final GetMultiWinnerYearsUseCase multiWinnerYearsUseCase;
-
   MultiWinnerYearsCubit(this.multiWinnerYearsUseCase)
       : super(const MultiWinnerYearsInitial());
+
+  final GetMultiWinnerYearsUseCase multiWinnerYearsUseCase;
 
   Future<void> getMultiWinnerYears() async {
     emit(const MultiWinnerYearsLoading());

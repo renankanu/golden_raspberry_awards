@@ -16,16 +16,18 @@ class TopStudioAwardsLoading extends TopStudioAwardsState {
 }
 
 class TopStudioAwardsLoaded extends TopStudioAwardsState {
-  final List<TopWinningStudios> topStudioAwards;
   const TopStudioAwardsLoaded(this.topStudioAwards);
+
+  final List<TopWinningStudios> topStudioAwards;
 
   @override
   List<Object> get props => [topStudioAwards];
 }
 
 class TopStudioAwardsError extends TopStudioAwardsState {
-  final String message;
   const TopStudioAwardsError(this.message);
+
+  final String message;
 
   @override
   List<Object> get props => [message];

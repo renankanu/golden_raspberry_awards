@@ -21,25 +21,25 @@ void init() {
   //usecases
   injector.registerLazySingleton(() => GetMultiWinnerYearsUseCase(injector()));
   injector.registerLazySingleton(
-      () => GetProducersIntervalVictoriesUseCase(injector()));
+      () => GetProducersIntervalVictoriesUseCase(injector()),);
   injector.registerLazySingleton(() => GetTopWinningStudiosUseCase(injector()));
   injector.registerLazySingleton(() => GetWinnerByYearUseCase(injector()));
 
   //repositories
   injector.registerLazySingleton<DashboardRepository>(
-      () => DashboardRepositoryImpl(remoteDatasource: injector()));
+      () => DashboardRepositoryImpl(remoteDatasource: injector()),);
 
   //datasources
   injector.registerLazySingleton<RemoteDatasource>(
-      () => RemoteDatasourceImpl(dioClient: injector()));
+      () => RemoteDatasourceImpl(dioClient: injector()),);
 
   //cubits
   injector.registerLazySingleton<MultiWinnerYearsCubit>(
-      () => MultiWinnerYearsCubit(injector()));
+      () => MultiWinnerYearsCubit(injector()),);
   injector.registerLazySingleton<TopStudioAwardsCubit>(
-      () => TopStudioAwardsCubit(injector()));
+      () => TopStudioAwardsCubit(injector()),);
   injector.registerLazySingleton<ProducersIntervalWinsCubit>(
-      () => ProducersIntervalWinsCubit(injector()));
+      () => ProducersIntervalWinsCubit(injector()),);
   injector.registerLazySingleton<SearchByYearCubit>(
-      () => SearchByYearCubit(injector()));
+      () => SearchByYearCubit(injector()),);
 }

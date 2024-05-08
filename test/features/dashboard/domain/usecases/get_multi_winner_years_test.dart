@@ -23,7 +23,7 @@ void main() {
       const MultiWinnerYear(year: 2018, wins: 3),
     ];
     provideDummy<Either<Failure, List<MultiWinnerYear>>>(
-        Right(tMultiWinnerYear));
+        Right(tMultiWinnerYear),);
   });
 
   test('should get multi winner years from the repository', () async {

@@ -7,10 +7,9 @@ import '../../../domain/entities/entities.dart';
 part 'top_studio_awards_state.dart';
 
 class TopStudioAwardsCubit extends Cubit<TopStudioAwardsState> {
-  final GetTopWinningStudiosUseCase topWinningStudiosUseCase;
-
   TopStudioAwardsCubit(this.topWinningStudiosUseCase)
       : super(const TopStudioAwardsInitial());
+  final GetTopWinningStudiosUseCase topWinningStudiosUseCase;
 
   Future<void> getTopStudioAwards() async {
     emit(const TopStudioAwardsLoading());

@@ -7,10 +7,10 @@ import '../../../domain/usecases/get_winner_by_year.dart';
 part 'search_by_year_state.dart';
 
 class SearchByYearCubit extends Cubit<SearchByYearState> {
-  final GetWinnerByYearUseCase winnerByYearUseCase;
-
   SearchByYearCubit(this.winnerByYearUseCase)
       : super(const SearchByYearInitial());
+
+  final GetWinnerByYearUseCase winnerByYearUseCase;
 
   Future<void> getWinnerByYear(int year) async {
     emit(const SearchByYearLoading());

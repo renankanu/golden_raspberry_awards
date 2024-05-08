@@ -12,34 +12,36 @@ class IntervalVictoryContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<ProducersIntervalWinsCubit, ProducersIntervalWinsState>(
-        builder: (context, state) {
-      return Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const SectionTitle(title: 'Intervalo entre prêmios'),
-          const SizedBox(height: 24),
-          switch (state) {
-            ProducersIntervalWinsLoading() => const CircularProgressIndicator(),
-            ProducersIntervalWinsLoaded() => Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  IntervalWidget(
-                    title: 'Menor intervalo',
-                    item: state.producersIntervalWins.min[0],
-                  ),
-                  const SizedBox(height: 24),
-                  IntervalWidget(
-                    title: 'Maior intervalo',
-                    item: state.producersIntervalWins.max[0],
-                  ),
-                ],
-              ),
-            ProducersIntervalWinsError() => const Text('Erro ao carregar'),
-            _ => const SizedBox.shrink(),
-          }
-        ],
-      );
-    });
+      builder: (context, state) {
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const SectionTitle(title: 'Intervalo entre prêmios'),
+            const SizedBox(height: 24),
+            switch (state) {
+              ProducersIntervalWinsLoading() =>
+                const CircularProgressIndicator(),
+              ProducersIntervalWinsLoaded() => Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    IntervalWidget(
+                      title: 'Menor intervalo',
+                      item: state.producersIntervalWins.min[0],
+                    ),
+                    const SizedBox(height: 24),
+                    IntervalWidget(
+                      title: 'Maior intervalo',
+                      item: state.producersIntervalWins.max[0],
+                    ),
+                  ],
+                ),
+              ProducersIntervalWinsError() => const Text('Erro ao carregar'),
+              _ => const SizedBox.shrink(),
+            },
+          ],
+        );
+      },
+    );
   }
 }
 
@@ -95,22 +97,24 @@ class IntervalWidget extends StatelessWidget {
                 ),
                 const SizedBox(height: 8),
                 RichText(
-                    text: TextSpan(
-                  text: '${item.previousWin} - ${item.followingWin}',
-                  style: const TextStyle(
+                  text: TextSpan(
+                    text: '${item.previousWin} - ${item.followingWin}',
+                    style: const TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.w600,
-                      color: AppColors.mineShaft),
-                  children: [
-                    TextSpan(
-                      text: ' ($getInterval)',
-                      style: const TextStyle(
-                        fontSize: 12,
-                        fontWeight: FontWeight.w400,
-                      ),
+                      color: AppColors.mineShaft,
                     ),
-                  ],
-                )),
+                    children: [
+                      TextSpan(
+                        text: ' ($getInterval)',
+                        style: const TextStyle(
+                          fontSize: 12,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
               ],
             ),
           ),

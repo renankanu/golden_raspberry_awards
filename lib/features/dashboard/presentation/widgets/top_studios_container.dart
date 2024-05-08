@@ -21,7 +21,8 @@ class TopStudiosContainer extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const SectionTitle(
-                title: 'Estúdios com mais prêmios'), // Add this line
+              title: 'Estúdios com mais prêmios',
+            ), // Add this line
             const SizedBox(height: 12),
             switch (state) {
               TopStudioAwardsLoading() => const CircularProgressIndicator(),
@@ -48,7 +49,7 @@ class TopStudiosContainer extends StatelessWidget {
                 ),
               TopStudioAwardsError() => const Text('Erro ao carregar'),
               _ => const SizedBox.shrink(),
-            }
+            },
           ],
         );
       }),

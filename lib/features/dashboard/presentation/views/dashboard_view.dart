@@ -20,14 +20,14 @@ class DashboardView extends StatelessWidget {
       providers: [
         BlocProvider(
             create: (_) =>
-                GetIt.I<MultiWinnerYearsCubit>()..getMultiWinnerYears()),
+                GetIt.I<MultiWinnerYearsCubit>()..getMultiWinnerYears(),),
         BlocProvider(
             create: (_) =>
-                GetIt.I<TopStudioAwardsCubit>()..getTopStudioAwards()),
+                GetIt.I<TopStudioAwardsCubit>()..getTopStudioAwards(),),
         BlocProvider(
             create: (_) => GetIt.I<ProducersIntervalWinsCubit>()
-              ..getProducersIntervalWins()),
-        BlocProvider(create: (_) => GetIt.I<SearchByYearCubit>())
+              ..getProducersIntervalWins(),),
+        BlocProvider(create: (_) => GetIt.I<SearchByYearCubit>()),
       ],
       child: Scaffold(
         appBar: AppBar(
