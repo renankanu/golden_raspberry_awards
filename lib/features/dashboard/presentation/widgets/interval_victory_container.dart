@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:golden_raspberry_awards/core/constants/app_colors.dart';
 import 'package:golden_raspberry_awards/features/dashboard/presentation/cubit/producers_interval_wins/producers_interval_wins_cubit.dart';
+import 'package:golden_raspberry_awards/features/dashboard/presentation/widgets/section_title.dart';
+
+import '../../domain/entities/producer.dart';
 
 class IntervalVictoryContainer extends StatelessWidget {
   const IntervalVictoryContainer({super.key});
@@ -13,23 +16,27 @@ class IntervalVictoryContainer extends StatelessWidget {
       return Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text(
-            'Intervalo de premiações',
-            style: TextStyle(
-              fontSize: 24,
-              fontWeight: FontWeight.w600,
-            ),
-          ),
+          const SectionTitle(title: 'Intervalo entre prêmios'),
+          const SizedBox(height: 24),
           switch (state) {
             ProducersIntervalWinsLoading() => const CircularProgressIndicator(),
-            ProducersIntervalWinsLoaded() => Container(),
+            ProducersIntervalWinsLoaded() => Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  IntervalWidget(
+                    title: 'Menor intervalo',
+                    item: state.producersIntervalWins.min[0],
+                  ),
+                  const SizedBox(height: 24),
+                  IntervalWidget(
+                    title: 'Maior intervalo',
+                    item: state.producersIntervalWins.max[0],
+                  ),
+                ],
+              ),
             ProducersIntervalWinsError() => const Text('Erro ao carregar'),
             _ => const SizedBox.shrink(),
           }
-          // SizedBox(height: 12),
-          // IntervalWidget(),
-          // SizedBox(height: 24),
-          // IntervalWidget(),
         ],
       );
     });
@@ -39,15 +46,24 @@ class IntervalVictoryContainer extends StatelessWidget {
 class IntervalWidget extends StatelessWidget {
   const IntervalWidget({
     super.key,
+    required this.title,
+    required this.item,
   });
+
+  final String title;
+  final Producer item;
+
+  String get getInterval {
+    return '${item.interval} anos';
+  }
 
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text('Maior intervalo', style: TextStyle(fontSize: 18)),
-        const SizedBox(height: 12),
+        Text(title, style: const TextStyle(fontSize: 16)),
+        const SizedBox(height: 8),
         DecoratedBox(
           decoration: BoxDecoration(
             color: Theme.of(context).colorScheme.primary,
@@ -58,19 +74,38 @@ class IntervalWidget extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text('Matthew Vaughn'),
                 RichText(
-                    text: const TextSpan(
-                  text: '1990 - 1999',
-                  style: TextStyle(
-                      fontSize: 18,
+                  text: TextSpan(
+                    text: 'Produtor: ',
+                    style: const TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w600,
+                      color: AppColors.mineShaft,
+                    ),
+                    children: [
+                      TextSpan(
+                        text: item.producer,
+                        style: const TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(height: 8),
+                RichText(
+                    text: TextSpan(
+                  text: '${item.previousWin} - ${item.followingWin}',
+                  style: const TextStyle(
+                      fontSize: 16,
                       fontWeight: FontWeight.w600,
                       color: AppColors.mineShaft),
                   children: [
                     TextSpan(
-                      text: ' (10 anos)',
-                      style: TextStyle(
-                        fontSize: 14,
+                      text: ' ($getInterval)',
+                      style: const TextStyle(
+                        fontSize: 12,
                         fontWeight: FontWeight.w400,
                       ),
                     ),

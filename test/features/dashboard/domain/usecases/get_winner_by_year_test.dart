@@ -35,13 +35,13 @@ void main() {
 
   test('should get winners by year from the repository', () async {
     // arrange
-    when(repository.getWinnersByYear())
+    when(repository.getWinnersByYear(2000))
         .thenAnswer((_) async => Right(tWinnersByYear));
     // act
-    final result = await usecase();
+    final result = await usecase(2000);
     // assert
     expect(result, Right(tWinnersByYear));
-    verify(repository.getWinnersByYear());
+    verify(repository.getWinnersByYear(2000));
     verifyNoMoreInteractions(repository);
   });
 }

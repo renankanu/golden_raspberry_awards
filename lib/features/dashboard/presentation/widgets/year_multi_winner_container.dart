@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:golden_raspberry_awards/features/dashboard/presentation/widgets/section_title.dart';
 
 import '../cubit/multi_winner_years/multi_winner_years_cubit.dart';
 
@@ -11,14 +12,10 @@ class YearMultiWinnerContainer extends StatelessWidget {
     return BlocBuilder<MultiWinnerYearsCubit, MultiWinnerYearsState>(
         builder: (context, state) {
       return Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text(
-            'Ano com mais premiações',
-            style: TextStyle(
-              fontSize: 24,
-              fontWeight: FontWeight.w600,
-            ),
-          ),
+          const SectionTitle(
+              title: 'Anos com mais premiações'), // Add this line
           const SizedBox(height: 12),
           switch (state) {
             MultiWinnerYearsLoading() => const CircularProgressIndicator(),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
+import 'package:golden_raspberry_awards/features/dashboard/presentation/cubit/search_by_year/search_by_year_cubit.dart';
 import 'package:golden_raspberry_awards/features/dashboard/presentation/widgets/search_winner_year_container.dart';
 import 'package:golden_raspberry_awards/features/dashboard/presentation/widgets/year_multi_winner_container.dart';
 
@@ -26,6 +27,7 @@ class DashboardView extends StatelessWidget {
         BlocProvider(
             create: (_) => GetIt.I<ProducersIntervalWinsCubit>()
               ..getProducersIntervalWins()),
+        BlocProvider(create: (_) => GetIt.I<SearchByYearCubit>())
       ],
       child: Scaffold(
         appBar: AppBar(

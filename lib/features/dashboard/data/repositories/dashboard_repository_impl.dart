@@ -46,9 +46,11 @@ class DashboardRepositoryImpl implements DashboardRepository {
   }
 
   @override
-  Future<Either<Failure, List<WinnersByYear>>> getWinnersByYear() async {
+  Future<Either<Failure, List<WinnersByYear>>> getWinnersByYear(
+    int year,
+  ) async {
     try {
-      final result = await remoteDatasource.getWinnersByYear();
+      final result = await remoteDatasource.getWinnersByYear(year);
       return Right(result);
     } on ServerException {
       return const Left(ServerFailure('Server Failure in get winners by year'));

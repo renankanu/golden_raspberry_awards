@@ -6,7 +6,7 @@ import '../../../../core/core.dart';
 abstract class RemoteDatasource {
   Future<List<MultiWinnerYearModel>> getMultiWinnerYears();
   Future<ProducersIntervalVictoriesModel> getProducersIntervalVictories();
-  Future<List<WinnersByYearModel>> getWinnersByYear();
+  Future<List<WinnersByYearModel>> getWinnersByYear(int year);
   Future<List<TopWinningStudiosModel>> getTopWinningStudios();
 }
 
@@ -38,11 +38,11 @@ class RemoteDatasourceImpl implements RemoteDatasource {
   }
 
   @override
-  Future<List<WinnersByYearModel>> getWinnersByYear() async {
-    final response = await dioClient.get(Urls.winnerByYear);
+  Future<List<WinnersByYearModel>> getWinnersByYear(int year) async {
+    final response = await dioClient.get('${Urls.winnerByYear}$year');
     if (response.statusCode == 200) {
       final List<dynamic> data = response.data;
-      return data.map((e) => WinnersByYearModel.fromJson(e)).toList();
+      return data.map((item) => WinnersByYearModel.fromJson(item)).toList();
     } else {
       throw ServerException();
     }

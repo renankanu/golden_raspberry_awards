@@ -77,23 +77,23 @@ class MockDashboardRepository extends _i1.Mock
       ) as _i3.Future<_i4.Either<_i5.Failure, _i6.ProducersIntervalWins>>);
 
   @override
-  _i3.Future<_i4.Either<_i5.Failure, List<_i6.WinnersByYear>>>
-      getWinnersByYear() => (super.noSuchMethod(
-            Invocation.method(
-              #getWinnersByYear,
-              [],
-            ),
-            returnValue: _i3
-                .Future<_i4.Either<_i5.Failure, List<_i6.WinnersByYear>>>.value(
-                _i7.dummyValue<
-                    _i4.Either<_i5.Failure, List<_i6.WinnersByYear>>>(
-              this,
-              Invocation.method(
-                #getWinnersByYear,
-                [],
-              ),
-            )),
-          ) as _i3.Future<_i4.Either<_i5.Failure, List<_i6.WinnersByYear>>>);
+  _i3.Future<_i4.Either<_i5.Failure, List<_i6.WinnersByYear>>> getWinnersByYear(
+          int? year) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #getWinnersByYear,
+          [year],
+        ),
+        returnValue: _i3
+            .Future<_i4.Either<_i5.Failure, List<_i6.WinnersByYear>>>.value(
+            _i7.dummyValue<_i4.Either<_i5.Failure, List<_i6.WinnersByYear>>>(
+          this,
+          Invocation.method(
+            #getWinnersByYear,
+            [year],
+          ),
+        )),
+      ) as _i3.Future<_i4.Either<_i5.Failure, List<_i6.WinnersByYear>>>);
 
   @override
   _i3.Future<_i4.Either<_i5.Failure, List<_i6.TopWinningStudios>>>

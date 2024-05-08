@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:golden_raspberry_awards/features/dashboard/presentation/cubit/top_studio_awards/top_studio_awards_cubit.dart';
+import 'package:golden_raspberry_awards/features/dashboard/presentation/widgets/section_title.dart';
 
 import '../../domain/entities/entities.dart';
 
@@ -19,13 +20,8 @@ class TopStudiosContainer extends StatelessWidget {
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
-              'Top 3 Estúdios com mais premiações',
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.w600,
-              ),
-            ),
+            const SectionTitle(
+                title: 'Estúdios com mais prêmios'), // Add this line
             const SizedBox(height: 12),
             switch (state) {
               TopStudioAwardsLoading() => const CircularProgressIndicator(),

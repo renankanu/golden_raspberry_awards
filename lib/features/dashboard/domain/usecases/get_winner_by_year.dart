@@ -9,7 +9,7 @@ class GetWinnerByYearUseCase {
 
   GetWinnerByYearUseCase(this.repository);
 
-  Future<Either<Failure, List<WinnersByYear>>> call() async {
-    return await repository.getWinnersByYear();
+  Future<Either<Failure, List<WinnersByYear>>> call(int year) async {
+    return await repository.getWinnersByYear(year);
   }
 }

@@ -17,6 +17,7 @@ final ThemeData appTheme = ThemeData(
     selectionHandleColor: AppColors.mineShaft,
   ),
   inputDecorationTheme: const InputDecorationTheme(
+    contentPadding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
     labelStyle: TextStyle(
       color: AppColors.mineShaft,
       fontSize: 16,
