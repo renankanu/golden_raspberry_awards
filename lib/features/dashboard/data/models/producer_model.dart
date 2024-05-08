@@ -10,10 +10,10 @@ class ProducerModel extends Producer {
 
   factory ProducerModel.fromJson(Map<String, dynamic> json) {
     return ProducerModel(
-      producer: json['producer'],
-      interval: json['interval'],
-      followingWin: json['followingWin'],
-      previousWin: json['previousWin'],
+      producer: json['producer'] as String,
+      interval: json['interval'] as int,
+      followingWin: json['followingWin'] as int,
+      previousWin: json['previousWin'] as int,
     );
   }
 }

@@ -8,8 +8,8 @@ class MultiWinnerYearModel extends MultiWinnerYear {
 
   factory MultiWinnerYearModel.fromJson(Map<String, dynamic> json) {
     return MultiWinnerYearModel(
-      year: json['year'],
-      wins: json['winnerCount'],
+      year: json['year'] as int,
+      wins: json['winnerCount'] as int,
     );
   }
 }

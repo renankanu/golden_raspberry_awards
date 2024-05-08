@@ -19,8 +19,13 @@ class RemoteDatasourceImpl implements RemoteDatasource {
   Future<List<MultiWinnerYearModel>> getMultiWinnerYears() async {
     final response = await dioClient.get(Urls.multipleWinner);
     if (response.statusCode == 200) {
-      final List<dynamic> data = response.data['years'];
-      return data.map((item) => MultiWinnerYearModel.fromJson(item)).toList();
+      final data = response.data['years'] as List;
+      return data
+          .map(
+            (item) =>
+                MultiWinnerYearModel.fromJson(item as Map<String, dynamic>),
+          )
+          .toList();
     } else {
       throw ServerException();
     }
@@ -31,7 +36,8 @@ class RemoteDatasourceImpl implements RemoteDatasource {
       getProducersIntervalVictories() async {
     final response = await dioClient.get(Urls.intervalWins);
     if (response.statusCode == 200) {
-      return ProducersIntervalVictoriesModel.fromJson(response.data);
+      final json = response.data as Map<String, dynamic>;
+      return ProducersIntervalVictoriesModel.fromJson(json);
     } else {
       throw ServerException();
     }
@@ -41,8 +47,12 @@ class RemoteDatasourceImpl implements RemoteDatasource {
   Future<List<WinnersByYearModel>> getWinnersByYear(int year) async {
     final response = await dioClient.get('${Urls.winnerByYear}$year');
     if (response.statusCode == 200) {
-      final List<dynamic> data = response.data;
-      return data.map((item) => WinnersByYearModel.fromJson(item)).toList();
+      final data = response.data as List;
+      return data
+          .map(
+            (item) => WinnersByYearModel.fromJson(item as Map<String, dynamic>),
+          )
+          .toList();
     } else {
       throw ServerException();
     }
@@ -52,8 +62,13 @@ class RemoteDatasourceImpl implements RemoteDatasource {
   Future<List<TopWinningStudiosModel>> getTopWinningStudios() async {
     final response = await dioClient.get(Urls.studioWins);
     if (response.statusCode == 200) {
-      final List<dynamic> data = response.data['studios'];
-      return data.map((item) => TopWinningStudiosModel.fromJson(item)).toList();
+      final data = response.data['studios'] as List;
+      return data
+          .map(
+            (item) =>
+                TopWinningStudiosModel.fromJson(item as Map<String, dynamic>),
+          )
+          .toList();
     } else {
       throw ServerException();
     }

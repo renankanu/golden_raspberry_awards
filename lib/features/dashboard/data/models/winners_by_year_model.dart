@@ -9,9 +9,9 @@ class WinnersByYearModel extends WinnersByYear {
 
   factory WinnersByYearModel.fromJson(Map<String, dynamic> json) {
     return WinnersByYearModel(
-      id: json['id'],
-      year: json['year'],
-      title: json['title'],
+      id: json['id'] as int,
+      year: json['year'] as int,
+      title: json['title'] as String,
     );
   }
 }

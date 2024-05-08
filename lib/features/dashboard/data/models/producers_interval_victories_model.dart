@@ -9,8 +9,12 @@ class ProducersIntervalVictoriesModel extends ProducersIntervalWins {
 
   factory ProducersIntervalVictoriesModel.fromJson(Map<String, dynamic> json) {
     return ProducersIntervalVictoriesModel(
-      min: (json['min'] as List).map((e) => ProducerModel.fromJson(e)).toList(),
-      max: (json['max'] as List).map((e) => ProducerModel.fromJson(e)).toList(),
+      min: (json['min'] as List)
+          .map((e) => ProducerModel.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      max: (json['max'] as List)
+          .map((e) => ProducerModel.fromJson(e as Map<String, dynamic>))
+          .toList(),
     );
   }
 }
