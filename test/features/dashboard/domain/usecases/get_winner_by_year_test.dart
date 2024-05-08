@@ -2,22 +2,22 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:fpdart/fpdart.dart';
 import 'package:golden_raspberry_awards/core/core.dart';
 import 'package:golden_raspberry_awards/features/dashboard/domain/entities/entities.dart';
-import 'package:golden_raspberry_awards/features/dashboard/domain/repositories/dashboard_repository.dart';
-import 'package:golden_raspberry_awards/features/dashboard/domain/usecases/get_winner_by_year.dart';
+import 'package:golden_raspberry_awards/features/dashboard/domain/repositories/movie_repository.dart';
+import 'package:golden_raspberry_awards/features/dashboard/domain/usecases/winner_by_year_usecases.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 
 import 'get_winner_by_year_test.mocks.dart';
 
-@GenerateMocks([DashboardRepository])
+@GenerateMocks([MovieRepository])
 void main() {
-  late MockDashboardRepository repository;
-  late GetWinnerByYearUseCase usecase;
+  late MockMovieRepository repository;
+  late WinnerByYearUseCase usecase;
   late final List<Movie> tWinnersByYear;
 
   setUp(() {
-    repository = MockDashboardRepository();
-    usecase = GetWinnerByYearUseCase(repository);
+    repository = MockMovieRepository();
+    usecase = WinnerByYearUseCase(repository);
     tWinnersByYear = [
       const Movie(
         id: 1,

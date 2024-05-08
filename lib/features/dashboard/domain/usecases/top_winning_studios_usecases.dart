@@ -2,12 +2,12 @@ import 'package:fpdart/fpdart.dart';
 
 import '../../../../core/core.dart';
 import '../entities/entities.dart';
-import '../repositories/dashboard_repository.dart';
+import '../repositories/movie_repository.dart';
 
-class GetTopWinningStudiosUseCase {
-  GetTopWinningStudiosUseCase(this.repository);
+class TopWinningStudiosUseCase {
+  TopWinningStudiosUseCase(this.repository);
 
-  final DashboardRepository repository;
+  final MovieRepository repository;
 
   Future<Either<Failure, List<TopWinningStudios>>> call() async {
     return repository.getTopWinningStudios();

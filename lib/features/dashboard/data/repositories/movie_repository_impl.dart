@@ -2,10 +2,10 @@ import 'package:fpdart/fpdart.dart';
 
 import '../../../../core/core.dart';
 import '../../domain/entities/entities.dart';
-import '../../domain/repositories/dashboard_repository.dart';
+import '../../domain/repositories/movie_repository.dart';
 import '../datasource/remote_datasource.dart';
 
-class DashboardRepositoryImpl implements DashboardRepository {
+class DashboardRepositoryImpl implements MovieRepository {
   DashboardRepositoryImpl({required this.remoteDatasource});
 
   final RemoteDatasource remoteDatasource;
@@ -57,6 +57,16 @@ class DashboardRepositoryImpl implements DashboardRepository {
       return Right(result);
     } on ServerException {
       return const Left(ServerFailure('Server Failure in get winners by year'));
+    }
+  }
+
+  @override
+  Future<Either<Failure, MoviesListings>> getMovies({required int page}) async {
+    try {
+      final result = await remoteDatasource.getMovies(page: page);
+      return Right(result);
+    } on ServerException {
+      return const Left(ServerFailure('Server Failure in get movies'));
     }
   }
 }

@@ -2,12 +2,12 @@ import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 
 import 'features/dashboard/data/datasource/remote_datasource.dart';
-import 'features/dashboard/data/repositories/dashboard_repository_impl.dart';
-import 'features/dashboard/domain/repositories/dashboard_repository.dart';
-import 'features/dashboard/domain/usecases/get_multi_winner_years.dart';
-import 'features/dashboard/domain/usecases/get_producers_interval_victories.dart';
-import 'features/dashboard/domain/usecases/get_top_winning_studios.dart';
-import 'features/dashboard/domain/usecases/get_winner_by_year.dart';
+import 'features/dashboard/data/repositories/movie_repository_impl.dart';
+import 'features/dashboard/domain/repositories/movie_repository.dart';
+import 'features/dashboard/domain/usecases/multi_winner_years_usecases.dart';
+import 'features/dashboard/domain/usecases/producers_interval_victories_usecases.dart';
+import 'features/dashboard/domain/usecases/top_winning_studios_usecases.dart';
+import 'features/dashboard/domain/usecases/winner_by_year_usecases.dart';
 import 'features/dashboard/presentation/cubit/multi_winner_years/multi_winner_years_cubit.dart';
 import 'features/dashboard/presentation/cubit/producers_interval_wins/producers_interval_wins_cubit.dart';
 import 'features/dashboard/presentation/cubit/search_by_year/search_by_year_cubit.dart';
@@ -20,15 +20,15 @@ void init() {
     ..registerSingleton<Dio>(Dio())
 
     //usecases
-    ..registerLazySingleton(() => GetMultiWinnerYearsUseCase(injector()))
+    ..registerLazySingleton(() => MultiWinnerYearsUseCase(injector()))
     ..registerLazySingleton(
-      () => GetProducersIntervalVictoriesUseCase(injector()),
+      () => ProducersIntervalVictoriesUseCase(injector()),
     )
-    ..registerLazySingleton(() => GetTopWinningStudiosUseCase(injector()))
-    ..registerLazySingleton(() => GetWinnerByYearUseCase(injector()))
+    ..registerLazySingleton(() => TopWinningStudiosUseCase(injector()))
+    ..registerLazySingleton(() => WinnerByYearUseCase(injector()))
 
     //repositories
-    ..registerLazySingleton<DashboardRepository>(
+    ..registerLazySingleton<MovieRepository>(
       () => DashboardRepositoryImpl(remoteDatasource: injector()),
     )
 

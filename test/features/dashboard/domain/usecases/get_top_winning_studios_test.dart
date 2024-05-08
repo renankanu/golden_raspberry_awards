@@ -2,22 +2,22 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:fpdart/fpdart.dart';
 import 'package:golden_raspberry_awards/core/core.dart';
 import 'package:golden_raspberry_awards/features/dashboard/domain/entities/entities.dart';
-import 'package:golden_raspberry_awards/features/dashboard/domain/repositories/dashboard_repository.dart';
-import 'package:golden_raspberry_awards/features/dashboard/domain/usecases/get_top_winning_studios.dart';
+import 'package:golden_raspberry_awards/features/dashboard/domain/repositories/movie_repository.dart';
+import 'package:golden_raspberry_awards/features/dashboard/domain/usecases/top_winning_studios_usecases.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 
 import 'get_top_winning_studios_test.mocks.dart';
 
-@GenerateMocks([DashboardRepository])
+@GenerateMocks([MovieRepository])
 void main() {
-  late MockDashboardRepository repository;
-  late GetTopWinningStudiosUseCase usecase;
+  late MockMovieRepository repository;
+  late TopWinningStudiosUseCase usecase;
   late final List<TopWinningStudios> tTopWinningStudios;
 
   setUp(() {
-    repository = MockDashboardRepository();
-    usecase = GetTopWinningStudiosUseCase(repository);
+    repository = MockMovieRepository();
+    usecase = TopWinningStudiosUseCase(repository);
     tTopWinningStudios = [
       const TopWinningStudios(
         studio: 'studio one',
@@ -29,7 +29,8 @@ void main() {
       ),
     ];
     provideDummy<Either<Failure, List<TopWinningStudios>>>(
-        Right(tTopWinningStudios),);
+      Right(tTopWinningStudios),
+    );
   });
 
   test('should get top winning studios from the repository', () async {

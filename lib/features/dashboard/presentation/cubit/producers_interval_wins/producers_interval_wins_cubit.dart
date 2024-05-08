@@ -2,7 +2,7 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../domain/entities/entities.dart';
-import '../../../domain/usecases/get_producers_interval_victories.dart';
+import '../../../domain/usecases/producers_interval_victories_usecases.dart';
 
 part 'producers_interval_wins_state.dart';
 
@@ -10,7 +10,7 @@ class ProducersIntervalWinsCubit extends Cubit<ProducersIntervalWinsState> {
   ProducersIntervalWinsCubit(this.producersIntervalWinsUseCase)
       : super(const ProducersIntervalWinsInitial());
 
-  final GetProducersIntervalVictoriesUseCase producersIntervalWinsUseCase;
+  final ProducersIntervalVictoriesUseCase producersIntervalWinsUseCase;
 
   Future<void> getProducersIntervalWins() async {
     emit(const ProducersIntervalWinsLoading());

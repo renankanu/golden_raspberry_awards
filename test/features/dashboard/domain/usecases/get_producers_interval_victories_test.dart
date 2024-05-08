@@ -2,23 +2,22 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:fpdart/fpdart.dart';
 import 'package:golden_raspberry_awards/core/core.dart';
 import 'package:golden_raspberry_awards/features/dashboard/domain/entities/entities.dart';
-import 'package:golden_raspberry_awards/features/dashboard/domain/entities/producer.dart';
-import 'package:golden_raspberry_awards/features/dashboard/domain/repositories/dashboard_repository.dart';
-import 'package:golden_raspberry_awards/features/dashboard/domain/usecases/get_producers_interval_victories.dart';
+import 'package:golden_raspberry_awards/features/dashboard/domain/repositories/movie_repository.dart';
+import 'package:golden_raspberry_awards/features/dashboard/domain/usecases/producers_interval_victories_usecases.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 
 import 'get_producers_interval_victories_test.mocks.dart';
 
-@GenerateMocks([DashboardRepository])
+@GenerateMocks([MovieRepository])
 void main() {
-  late MockDashboardRepository repository;
-  late GetProducersIntervalVictoriesUseCase usecase;
+  late MockMovieRepository repository;
+  late ProducersIntervalVictoriesUseCase usecase;
   late final ProducersIntervalWins tProducerIntervalVictory;
 
   setUp(() {
-    repository = MockDashboardRepository();
-    usecase = GetProducersIntervalVictoriesUseCase(repository);
+    repository = MockMovieRepository();
+    usecase = ProducersIntervalVictoriesUseCase(repository);
     tProducerIntervalVictory = const ProducersIntervalWins(
       min: [
         Producer(
@@ -38,7 +37,8 @@ void main() {
       ],
     );
     provideDummy<Either<Failure, ProducersIntervalWins>>(
-        Right(tProducerIntervalVictory),);
+      Right(tProducerIntervalVictory),
+    );
   });
 
   test('should get producers interval victories from the repository', () async {

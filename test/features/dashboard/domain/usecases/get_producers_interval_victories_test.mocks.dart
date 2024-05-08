@@ -9,7 +9,7 @@ import 'package:fpdart/fpdart.dart' as _i4;
 import 'package:golden_raspberry_awards/core/errors/failure.dart' as _i5;
 import 'package:golden_raspberry_awards/features/dashboard/domain/entities/entities.dart'
     as _i6;
-import 'package:golden_raspberry_awards/features/dashboard/domain/repositories/dashboard_repository.dart'
+import 'package:golden_raspberry_awards/features/dashboard/domain/repositories/movie_repository.dart'
     as _i2;
 import 'package:mockito/mockito.dart' as _i1;
 import 'package:mockito/src/dummies.dart' as _i7;
@@ -27,12 +27,11 @@ import 'package:mockito/src/dummies.dart' as _i7;
 // ignore_for_file: camel_case_types
 // ignore_for_file: subtype_of_sealed_class
 
-/// A class which mocks [DashboardRepository].
+/// A class which mocks [MovieRepository].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockDashboardRepository extends _i1.Mock
-    implements _i2.DashboardRepository {
-  MockDashboardRepository() {
+class MockMovieRepository extends _i1.Mock implements _i2.MovieRepository {
+  MockMovieRepository() {
     _i1.throwOnMissingStub(this);
   }
 
@@ -113,4 +112,25 @@ class MockDashboardRepository extends _i1.Mock
             )),
           ) as _i3
               .Future<_i4.Either<_i5.Failure, List<_i6.TopWinningStudios>>>);
+
+  @override
+  _i3.Future<_i4.Either<_i5.Failure, _i6.MoviesListings>> getMovies(
+          {required int? page}) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #getMovies,
+          [],
+          {#page: page},
+        ),
+        returnValue:
+            _i3.Future<_i4.Either<_i5.Failure, _i6.MoviesListings>>.value(
+                _i7.dummyValue<_i4.Either<_i5.Failure, _i6.MoviesListings>>(
+          this,
+          Invocation.method(
+            #getMovies,
+            [],
+            {#page: page},
+          ),
+        )),
+      ) as _i3.Future<_i4.Either<_i5.Failure, _i6.MoviesListings>>);
 }

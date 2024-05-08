@@ -2,14 +2,14 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../domain/entities/entities.dart';
-import '../../../domain/usecases/get_top_winning_studios.dart';
+import '../../../domain/usecases/top_winning_studios_usecases.dart';
 
 part 'top_studio_awards_state.dart';
 
 class TopStudioAwardsCubit extends Cubit<TopStudioAwardsState> {
   TopStudioAwardsCubit(this.topWinningStudiosUseCase)
       : super(const TopStudioAwardsInitial());
-  final GetTopWinningStudiosUseCase topWinningStudiosUseCase;
+  final TopWinningStudiosUseCase topWinningStudiosUseCase;
 
   Future<void> getTopStudioAwards() async {
     emit(const TopStudioAwardsLoading());

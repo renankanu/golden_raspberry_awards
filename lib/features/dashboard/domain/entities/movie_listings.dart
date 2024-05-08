@@ -2,13 +2,13 @@ import 'package:equatable/equatable.dart';
 
 import 'movie.dart';
 
-class Movies extends Equatable {
+class MoviesListings extends Equatable {
   final int page;
   final List<Movie> movies;
   final int totalPages;
   final int totalElements;
 
-  const Movies({
+  const MoviesListings({
     required this.page,
     required this.movies,
     required this.totalPages,
