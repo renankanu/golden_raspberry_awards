@@ -1,8 +1,3 @@
 class Urls {
-  static const _baseUrl = 'https://tools.texoit.com/backend-java/api/';
-  static const _movies = '${_baseUrl}movies?projection=';
-  static const multipleWinner = '${_movies}years-with-multiple-winners';
-  static const studioWins = '${_movies}studios-with-win-count';
-  static const intervalWins = '${_movies}max-min-win-interval-for-producers';
-  static const winnerByYear = '${_baseUrl}movies?winner=true&year=';
+  static const baseUrl = 'https://tools.texoit.com/backend-java/api/movies';
 }
