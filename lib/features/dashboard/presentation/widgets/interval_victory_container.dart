@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:golden_raspberry_awards/core/constants/app_colors.dart';
-import 'package:golden_raspberry_awards/features/dashboard/presentation/cubit/producers_interval_wins/producers_interval_wins_cubit.dart';
-import 'package:golden_raspberry_awards/features/dashboard/presentation/widgets/section_title.dart';
 
+import '../../../../core/constants/app_colors.dart';
 import '../../domain/entities/producer.dart';
+import '../cubit/producers_interval_wins/producers_interval_wins_cubit.dart';
+import 'section_title.dart';
 
 class IntervalVictoryContainer extends StatelessWidget {
   const IntervalVictoryContainer({super.key});

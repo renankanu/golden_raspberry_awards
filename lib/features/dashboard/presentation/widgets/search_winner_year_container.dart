@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:golden_raspberry_awards/core/core.dart';
-import 'package:golden_raspberry_awards/features/dashboard/presentation/cubit/search_by_year/search_by_year_cubit.dart';
-import 'package:golden_raspberry_awards/features/dashboard/presentation/widgets/section_title.dart';
 
+import '../../../../core/core.dart';
 import '../../domain/entities/entities.dart';
+import '../cubit/search_by_year/search_by_year_cubit.dart';
+import 'section_title.dart';
 
 class SearchWinnerYearContainer extends StatelessWidget {
   const SearchWinnerYearContainer({super.key});
@@ -20,16 +20,6 @@ class SearchWinnerYearContainer extends StatelessWidget {
         TextFormField(
           controller: yearText,
           keyboardType: TextInputType.number,
-          validator: (value) {
-            // TODO: create extension for this
-            if (value == null) {
-              return 'Informe um ano';
-            }
-            if (value.isEmpty) {
-              return 'Informe um ano';
-            }
-            return null;
-          },
           decoration: InputDecoration(
             hintText: 'Digite o ano',
             suffixIcon: IconButton(
@@ -45,7 +35,7 @@ class SearchWinnerYearContainer extends StatelessWidget {
         ),
         const SizedBox(height: 12),
         BlocBuilder<SearchByYearCubit, SearchByYearState>(
-          builder: ((context, state) {
+          builder: (context, state) {
             return switch (state) {
               SearchByYearLoading() => const Center(
                   child: CircularProgressIndicator(),
@@ -69,7 +59,7 @@ class SearchWinnerYearContainer extends StatelessWidget {
                 ),
               _ => Container()
             };
-          }),
+          },
         ),
       ],
     );

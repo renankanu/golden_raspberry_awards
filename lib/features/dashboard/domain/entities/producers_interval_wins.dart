@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:golden_raspberry_awards/features/dashboard/domain/entities/producer.dart';
+import 'producer.dart';
 
 class ProducersIntervalWins extends Equatable {
   const ProducersIntervalWins({

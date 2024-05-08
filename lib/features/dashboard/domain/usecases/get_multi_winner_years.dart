@@ -10,6 +10,6 @@ class GetMultiWinnerYearsUseCase {
   final DashboardRepository repository;
 
   Future<Either<Failure, List<MultiWinnerYear>>> call() async {
-    return await repository.getMultiWinnerYears();
+    return repository.getMultiWinnerYears();
   }
 }

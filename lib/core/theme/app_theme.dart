@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:golden_raspberry_awards/core/core.dart';
+import '../core.dart';
 
 final ThemeData appTheme = ThemeData(
   colorScheme: ColorScheme.fromSwatch().copyWith(

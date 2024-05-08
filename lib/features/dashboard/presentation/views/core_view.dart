@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:golden_raspberry_awards/features/dashboard/presentation/views/list_movies_view.dart';
 
 import 'dashboard_view.dart';
+import 'list_movies_view.dart';
 
 class CoreView extends StatefulWidget {
   const CoreView({super.key});

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:golden_raspberry_awards/features/dashboard/presentation/widgets/section_title.dart';
 
 import '../cubit/multi_winner_years/multi_winner_years_cubit.dart';
+import 'section_title.dart';
 
 class YearMultiWinnerContainer extends StatelessWidget {
   const YearMultiWinnerContainer({super.key});

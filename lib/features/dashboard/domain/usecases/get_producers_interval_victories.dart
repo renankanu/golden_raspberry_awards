@@ -10,6 +10,6 @@ class GetProducersIntervalVictoriesUseCase {
   final DashboardRepository repository;
 
   Future<Either<Failure, ProducersIntervalWins>> call() async {
-    return await repository.getProducersIntervalVictories();
+    return repository.getProducersIntervalVictories();
   }
 }

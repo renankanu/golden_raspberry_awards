@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:golden_raspberry_awards/core/core.dart';
-import 'package:golden_raspberry_awards/features/dashboard/presentation/views/core_view.dart';
+import 'core/core.dart';
+import 'features/dashboard/presentation/views/core_view.dart';
 
 import 'injector.dart' as di;
 

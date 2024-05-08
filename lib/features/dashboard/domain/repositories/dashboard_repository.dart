@@ -1,5 +1,5 @@
 import 'package:fpdart/fpdart.dart';
-import 'package:golden_raspberry_awards/core/errors/failure.dart';
+import '../../../../core/errors/failure.dart';
 
 import '../entities/entities.dart';
 

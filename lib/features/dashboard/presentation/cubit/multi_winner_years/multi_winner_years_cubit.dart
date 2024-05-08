@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:golden_raspberry_awards/features/dashboard/domain/entities/entities.dart';
-import 'package:golden_raspberry_awards/features/dashboard/domain/usecases/get_multi_winner_years.dart';
+import '../../../domain/entities/entities.dart';
+import '../../../domain/usecases/get_multi_winner_years.dart';
 
 part 'multi_winner_years_state.dart';
 

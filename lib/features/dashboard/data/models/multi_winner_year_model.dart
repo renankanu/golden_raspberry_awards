@@ -1,4 +1,4 @@
-import 'package:golden_raspberry_awards/features/dashboard/domain/entities/entities.dart';
+import '../../domain/entities/entities.dart';
 
 class MultiWinnerYearModel extends MultiWinnerYear {
   const MultiWinnerYearModel({

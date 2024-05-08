@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
-import 'package:golden_raspberry_awards/features/dashboard/data/models/models.dart';
 
 import '../../../../core/core.dart';
+import '../models/models.dart';
 
 abstract class RemoteDatasource {
   Future<List<MultiWinnerYearModel>> getMultiWinnerYears();

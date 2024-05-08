@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:golden_raspberry_awards/features/dashboard/presentation/cubit/top_studio_awards/top_studio_awards_cubit.dart';
-import 'package:golden_raspberry_awards/features/dashboard/presentation/widgets/section_title.dart';
 
 import '../../domain/entities/entities.dart';
+import '../cubit/top_studio_awards/top_studio_awards_cubit.dart';
+import 'section_title.dart';
 
 class TopStudiosContainer extends StatelessWidget {
   const TopStudiosContainer({super.key});
@@ -16,7 +16,7 @@ class TopStudiosContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<TopStudioAwardsCubit, TopStudioAwardsState>(
-      builder: ((context, state) {
+      builder: (context, state) {
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -52,7 +52,7 @@ class TopStudiosContainer extends StatelessWidget {
             },
           ],
         );
-      }),
+      },
     );
   }
 }

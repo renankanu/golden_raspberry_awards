@@ -1,8 +1,8 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:golden_raspberry_awards/features/dashboard/domain/usecases/get_top_winning_studios.dart';
 
 import '../../../domain/entities/entities.dart';
+import '../../../domain/usecases/get_top_winning_studios.dart';
 
 part 'top_studio_awards_state.dart';
 

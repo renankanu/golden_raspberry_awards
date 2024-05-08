@@ -10,6 +10,6 @@ class GetTopWinningStudiosUseCase {
   final DashboardRepository repository;
 
   Future<Either<Failure, List<TopWinningStudios>>> call() async {
-    return await repository.getTopWinningStudios();
+    return repository.getTopWinningStudios();
   }
 }
