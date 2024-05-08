@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 
-class WinnersByYear extends Equatable {
-  const WinnersByYear({
+class Movie extends Equatable {
+  const Movie({
     required this.id,
     required this.year,
     required this.title,

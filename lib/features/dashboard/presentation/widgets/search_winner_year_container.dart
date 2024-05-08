@@ -112,7 +112,7 @@ class CustomRow extends StatelessWidget {
     required this.winners,
   });
 
-  final List<WinnersByYear> winners;
+  final List<Movie> winners;
 
   @override
   Widget build(BuildContext context) {

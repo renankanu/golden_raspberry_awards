@@ -49,7 +49,7 @@ class DashboardRepositoryImpl implements DashboardRepository {
   }
 
   @override
-  Future<Either<Failure, List<WinnersByYear>>> getWinnersByYear(
+  Future<Either<Failure, List<Movie>>> getWinnersByYear(
     int year,
   ) async {
     try {

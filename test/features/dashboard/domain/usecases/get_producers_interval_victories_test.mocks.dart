@@ -77,23 +77,22 @@ class MockDashboardRepository extends _i1.Mock
       ) as _i3.Future<_i4.Either<_i5.Failure, _i6.ProducersIntervalWins>>);
 
   @override
-  _i3.Future<_i4.Either<_i5.Failure, List<_i6.WinnersByYear>>> getWinnersByYear(
+  _i3.Future<_i4.Either<_i5.Failure, List<_i6.Movie>>> getWinnersByYear(
           int? year) =>
       (super.noSuchMethod(
         Invocation.method(
           #getWinnersByYear,
           [year],
         ),
-        returnValue: _i3
-            .Future<_i4.Either<_i5.Failure, List<_i6.WinnersByYear>>>.value(
-            _i7.dummyValue<_i4.Either<_i5.Failure, List<_i6.WinnersByYear>>>(
+        returnValue: _i3.Future<_i4.Either<_i5.Failure, List<_i6.Movie>>>.value(
+            _i7.dummyValue<_i4.Either<_i5.Failure, List<_i6.Movie>>>(
           this,
           Invocation.method(
             #getWinnersByYear,
             [year],
           ),
         )),
-      ) as _i3.Future<_i4.Either<_i5.Failure, List<_i6.WinnersByYear>>>);
+      ) as _i3.Future<_i4.Either<_i5.Failure, List<_i6.Movie>>>);
 
   @override
   _i3.Future<_i4.Either<_i5.Failure, List<_i6.TopWinningStudios>>>

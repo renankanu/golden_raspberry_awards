@@ -9,7 +9,7 @@ class GetWinnerByYearUseCase {
 
   final DashboardRepository repository;
 
-  Future<Either<Failure, List<WinnersByYear>>> call(int year) async {
+  Future<Either<Failure, List<Movie>>> call(int year) async {
     return repository.getWinnersByYear(year);
   }
 }

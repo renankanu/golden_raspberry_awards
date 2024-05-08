@@ -13,24 +13,24 @@ import 'get_winner_by_year_test.mocks.dart';
 void main() {
   late MockDashboardRepository repository;
   late GetWinnerByYearUseCase usecase;
-  late final List<WinnersByYear> tWinnersByYear;
+  late final List<Movie> tWinnersByYear;
 
   setUp(() {
     repository = MockDashboardRepository();
     usecase = GetWinnerByYearUseCase(repository);
     tWinnersByYear = [
-      const WinnersByYear(
+      const Movie(
         id: 1,
         year: 2019,
         title: 'winner one',
       ),
-      const WinnersByYear(
+      const Movie(
         id: 2,
         year: 2020,
         title: 'winner two',
       ),
     ];
-    provideDummy<Either<Failure, List<WinnersByYear>>>(Right(tWinnersByYear));
+    provideDummy<Either<Failure, List<Movie>>>(Right(tWinnersByYear));
   });
 
   test('should get winners by year from the repository', () async {

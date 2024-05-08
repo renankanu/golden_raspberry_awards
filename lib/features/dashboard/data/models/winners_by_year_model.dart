@@ -1,14 +1,14 @@
 import '../../domain/entities/entities.dart';
 
-class WinnersByYearModel extends WinnersByYear {
-  const WinnersByYearModel({
+class MovieModel extends Movie {
+  const MovieModel({
     required super.id,
     required super.year,
     required super.title,
   });
 
-  factory WinnersByYearModel.fromJson(Map<String, dynamic> json) {
-    return WinnersByYearModel(
+  factory MovieModel.fromJson(Map<String, dynamic> json) {
+    return MovieModel(
       id: json['id'] as int,
       year: json['year'] as int,
       title: json['title'] as String,

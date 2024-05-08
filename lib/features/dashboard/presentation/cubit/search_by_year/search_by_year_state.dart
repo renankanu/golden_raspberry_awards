@@ -18,7 +18,7 @@ class SearchByYearLoading extends SearchByYearState {
 class SearchByYearLoaded extends SearchByYearState {
   const SearchByYearLoaded(this.moviesWinner);
 
-  final List<WinnersByYear> moviesWinner;
+  final List<Movie> moviesWinner;
 
   @override
   List<Object> get props => [moviesWinner];

@@ -6,16 +6,16 @@ import '../../../../_utils/json_reader.dart';
 
 void main() {
   final tWinnerByYearModel = [
-    const WinnersByYearModel(
+    const MovieModel(
       id: 1,
       year: 2024,
       title: 'The Batman',
     )
   ];
 
-  test('should be a subclass of WinnersByYear entity', () {
+  test('should be a subclass of Movie entity', () {
     // assert
-    expect(tWinnerByYearModel, isA<List<WinnersByYear>>());
+    expect(tWinnerByYearModel, isA<List<Movie>>());
   });
 
   test('should return winners by year model by JSON', () {
@@ -25,7 +25,7 @@ void main() {
     // act
     final result = data
         .map(
-          (item) => WinnersByYearModel.fromJson(item as Map<String, dynamic>),
+          (item) => MovieModel.fromJson(item as Map<String, dynamic>),
         )
         .toList();
 
