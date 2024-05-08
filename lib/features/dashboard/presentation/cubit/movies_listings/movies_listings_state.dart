@@ -16,12 +16,12 @@ class MoviesListingsLoading extends MoviesListingsState {
 }
 
 class MoviesListingsLoaded extends MoviesListingsState {
-  const MoviesListingsLoaded(this.moviesListings);
+  const MoviesListingsLoaded(this.movies);
 
-  final MoviesListings moviesListings;
+  final List<Movie> movies;
 
   @override
-  List<Object> get props => [moviesListings];
+  List<Object> get props => [movies];
 }
 
 class MoviesListingsError extends MoviesListingsState {

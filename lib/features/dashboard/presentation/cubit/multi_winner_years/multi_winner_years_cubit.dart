@@ -17,7 +17,7 @@ class MultiWinnerYearsCubit extends Cubit<MultiWinnerYearsState> {
     final result = await multiWinnerYearsUseCase();
     result.fold(
       (error) => emit(MultiWinnerYearsError(error.message)),
-      (multiWinners) => emit(MultiWinnerYearsLoaded(multiWinners)),
+      (success) => emit(MultiWinnerYearsLoaded(success)),
     );
   }
 }

@@ -17,7 +17,7 @@ class SearchByYearCubit extends Cubit<SearchByYearState> {
     final result = await winnerByYearUseCase(year);
     result.fold(
       (error) => emit(SearchByYearError(error.message)),
-      (moviesWinner) => emit(SearchByYearLoaded(moviesWinner)),
+      (success) => emit(SearchByYearLoaded(success)),
     );
   }
 }

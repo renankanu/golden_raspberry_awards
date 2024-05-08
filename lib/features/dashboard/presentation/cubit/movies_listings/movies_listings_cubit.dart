@@ -11,6 +11,7 @@ class MoviesListingsCubit extends Cubit<MoviesListingsState> {
       : super(const MoviesListingsInitial());
 
   final MovieUsecases movieUsecases;
+
   int _page = 1;
   final int _size = 20;
   final List<Movie> _movies = [];
@@ -20,10 +21,13 @@ class MoviesListingsCubit extends Cubit<MoviesListingsState> {
     int? year,
     bool? isWinner,
   }) async {
-    if (state is MoviesListingsLoading) {
+    if (hasReachedMax) {
       return;
     }
-    emit(const MoviesListingsLoading());
+
+    if (state is! MoviesListingsLoaded) {
+      emit(const MoviesListingsLoading());
+    }
     final result = await movieUsecases(
       page: _page,
       size: _size,
@@ -32,15 +36,15 @@ class MoviesListingsCubit extends Cubit<MoviesListingsState> {
     );
     result.fold(
       (error) => emit(MoviesListingsError(error.message)),
-      (moviesListings) {
+      (success) {
         _page++;
-        _movies.addAll(moviesListings.movies);
+        _movies.addAll(success.movies);
 
-        if (moviesListings.movies.length < 20) {
+        if (success.movies.length < _size) {
           hasReachedMax = true;
         }
 
-        emit(MoviesListingsLoaded(moviesListings));
+        emit(MoviesListingsLoaded(List.of(_movies)));
       },
     );
   }

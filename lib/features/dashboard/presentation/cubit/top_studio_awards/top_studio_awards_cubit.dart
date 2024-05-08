@@ -16,7 +16,7 @@ class TopStudioAwardsCubit extends Cubit<TopStudioAwardsState> {
     final result = await topWinningStudiosUseCase();
     result.fold(
       (error) => emit(TopStudioAwardsError(error.message)),
-      (topWinningStudios) => emit(TopStudioAwardsLoaded(topWinningStudios)),
+      (success) => emit(TopStudioAwardsLoaded(success)),
     );
   }
 }

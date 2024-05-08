@@ -20,10 +20,11 @@ class ListMoviesView extends StatelessWidget {
         body: BlocBuilder<MoviesListingsCubit, MoviesListingsState>(
           builder: (context, state) {
             return switch (state) {
-              MoviesListingsLoading() =>
-                const Center(child: CircularProgressIndicator()),
+              MoviesListingsLoading() => const AppIndicator(),
               MoviesListingsLoaded() => ListMovies(
-                  movies: state.moviesListings.movies,
+                  movies: state.movies,
+                  hasReachedMax:
+                      context.watch<MoviesListingsCubit>().hasReachedMax,
                 ),
               MoviesListingsError() => const Center(child: Text('Error')),
               _ => const SizedBox.shrink()
@@ -35,105 +36,133 @@ class ListMoviesView extends StatelessWidget {
   }
 }
 
-class ListMovies extends StatelessWidget {
+class ListMovies extends StatefulWidget {
   const ListMovies({
     super.key,
     required this.movies,
+    required this.hasReachedMax,
   });
 
   final List<Movie> movies;
+  final bool hasReachedMax;
+
+  @override
+  State<ListMovies> createState() => _ListMoviesState();
+}
+
+class _ListMoviesState extends State<ListMovies> {
+  final _scrollController = ScrollController();
+
+  @override
+  void initState() {
+    super.initState();
+    _scrollController.addListener(() {
+      final position = _scrollController.position;
+      final isBottom = position.maxScrollExtent == _scrollController.offset &&
+          position.pixels == position.maxScrollExtent;
+      if (isBottom) {
+        context.read<MoviesListingsCubit>().getMovies();
+      }
+    });
+  }
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
-    return NotificationListener(
-      onNotification: (ScrollNotification scrollInfo) {
-        if (scrollInfo.metrics.pixels == scrollInfo.metrics.maxScrollExtent) {
-          context.read<MoviesListingsCubit>().getMovies();
-        }
-        return true;
-      },
-      child: ListView.builder(
-        itemCount: movies.length,
-        itemBuilder: (context, index) {
-          final movie = movies[index];
-          return Container(
-            margin: const EdgeInsets.only(bottom: 2),
-            child: Card(
-              color: AppColors.creamCan,
-              child: Padding(
-                padding: const EdgeInsets.all(12),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'id: ${movie.id}',
-                      style: const TextStyle(fontSize: 12),
-                    ),
-                    const SizedBox(height: 8),
-                    RichText(
-                      text: TextSpan(
-                        text: 'Year: ',
-                        style: const TextStyle(
-                          color: AppColors.mineShaft,
-                          fontWeight: FontWeight.bold,
+    return Column(
+      children: [
+        Expanded(
+          child: ListView.builder(
+            controller: _scrollController,
+            itemCount: widget.movies.length,
+            itemBuilder: (context, index) {
+              final movie = widget.movies[index];
+              return Container(
+                margin: const EdgeInsets.only(bottom: 2),
+                child: Card(
+                  color: AppColors.creamCan,
+                  child: Padding(
+                    padding: const EdgeInsets.all(12),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'id: ${movie.id}',
+                          style: const TextStyle(fontSize: 12),
                         ),
-                        children: [
-                          TextSpan(
-                            text: movie.year.toString(),
+                        const SizedBox(height: 8),
+                        RichText(
+                          text: TextSpan(
+                            text: 'Year: ',
                             style: const TextStyle(
                               color: AppColors.mineShaft,
-                              fontWeight: FontWeight.normal,
+                              fontWeight: FontWeight.bold,
                             ),
+                            children: [
+                              TextSpan(
+                                text: movie.year.toString(),
+                                style: const TextStyle(
+                                  color: AppColors.mineShaft,
+                                  fontWeight: FontWeight.normal,
+                                ),
+                              ),
+                            ],
                           ),
-                        ],
-                      ),
-                    ),
-                    const SizedBox(height: 8),
-                    RichText(
-                      text: TextSpan(
-                        text: 'Title: ',
-                        style: const TextStyle(
-                          color: AppColors.mineShaft,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 16,
                         ),
-                        children: [
-                          TextSpan(
-                            text: movie.title,
+                        const SizedBox(height: 8),
+                        RichText(
+                          text: TextSpan(
+                            text: 'Title: ',
                             style: const TextStyle(
                               color: AppColors.mineShaft,
-                              fontWeight: FontWeight.normal,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 16,
                             ),
+                            children: [
+                              TextSpan(
+                                text: movie.title,
+                                style: const TextStyle(
+                                  color: AppColors.mineShaft,
+                                  fontWeight: FontWeight.normal,
+                                ),
+                              ),
+                            ],
                           ),
-                        ],
-                      ),
-                    ),
-                    const SizedBox(height: 12),
-                    RichText(
-                      text: TextSpan(
-                        text: 'Winner: ',
-                        style: const TextStyle(
-                          color: AppColors.mineShaft,
-                          fontWeight: FontWeight.bold,
                         ),
-                        children: [
-                          TextSpan(
-                            text: movie.isWinner ? 'Yes' : 'No',
+                        const SizedBox(height: 12),
+                        RichText(
+                          text: TextSpan(
+                            text: 'Winner: ',
                             style: const TextStyle(
                               color: AppColors.mineShaft,
-                              fontWeight: FontWeight.normal,
+                              fontWeight: FontWeight.bold,
                             ),
+                            children: [
+                              TextSpan(
+                                text: movie.isWinner ? 'Yes' : 'No',
+                                style: const TextStyle(
+                                  color: AppColors.mineShaft,
+                                  fontWeight: FontWeight.normal,
+                                ),
+                              ),
+                            ],
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
-                  ],
+                  ),
                 ),
-              ),
-            ),
-          );
-        },
-      ),
+              );
+            },
+          ),
+        ),
+        if (!widget.hasReachedMax) const AppIndicator(),
+      ],
     );
   }
 }

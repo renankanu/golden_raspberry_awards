@@ -17,8 +17,7 @@ class ProducersIntervalWinsCubit extends Cubit<ProducersIntervalWinsState> {
     final result = await producersIntervalWinsUseCase();
     result.fold(
       (error) => emit(ProducersIntervalWinsError(error.message)),
-      (producersIntervalWins) =>
-          emit(ProducersIntervalWinsLoaded(producersIntervalWins)),
+      (success) => emit(ProducersIntervalWinsLoaded(success)),
     );
   }
 }
