@@ -36,7 +36,6 @@ void main() {
     // act
     final result = ProducersIntervalVictoriesModel.fromJson(
         jsonMap as Map<String, dynamic>);
-
     // assert
     expect(result, tProducersIntervalVictoriesModel);
   });

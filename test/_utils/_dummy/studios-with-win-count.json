@@ -1,0 +1,16 @@
+{
+    "studios": [
+        {
+            "name": "Bollywood One",
+            "winCount": 1
+        },
+        {
+            "name": "Bollywood Two",
+            "winCount": 2
+        },
+        {
+            "name": "Bollywood Three",
+            "winCount": 3
+        }
+    ]
+}
