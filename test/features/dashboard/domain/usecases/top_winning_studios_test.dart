@@ -7,7 +7,7 @@ import 'package:golden_raspberry_awards/features/dashboard/domain/usecases/top_w
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 
-import 'get_top_winning_studios_test.mocks.dart';
+import 'top_winning_studios_test.mocks.dart';
 
 @GenerateMocks([MovieRepository])
 void main() {

@@ -7,7 +7,7 @@ import 'package:golden_raspberry_awards/features/dashboard/domain/usecases/winne
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 
-import 'get_winner_by_year_test.mocks.dart';
+import 'winner_by_year_test.mocks.dart';
 
 @GenerateMocks([MovieRepository])
 void main() {
