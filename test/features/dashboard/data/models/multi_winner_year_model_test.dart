@@ -25,21 +25,18 @@ void main() {
     expect(tMultiWinnerYearModel, isA<List<MultiWinnerYear>>());
   });
 
-  group('fromJson', () {
-    test('should return multi winner model by JSON', () {
-      // arrange
-      final jsonMap = jsonReader('years-with-multiple-winners.json');
-      final data = jsonMap['years'] as List;
-      // act
-      final result = data
-          .map(
-            (item) =>
-                MultiWinnerYearModel.fromJson(item as Map<String, dynamic>),
-          )
-          .toList();
+  test('should return multi winner model by JSON', () {
+    // arrange
+    final jsonMap = jsonReader('years-with-multiple-winners.json');
+    final data = jsonMap['years'] as List;
+    // act
+    final result = data
+        .map(
+          (item) => MultiWinnerYearModel.fromJson(item as Map<String, dynamic>),
+        )
+        .toList();
 
-      // assert
-      expect(result, tMultiWinnerYearModel);
-    });
+    // assert
+    expect(result, tMultiWinnerYearModel);
   });
 }
