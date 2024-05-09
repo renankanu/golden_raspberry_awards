@@ -14,7 +14,7 @@ class MovieRepositoryImpl implements MovieRepository {
   Future<Either<Failure, List<MultiWinnerYear>>> getMultiWinnerYears() async {
     try {
       final result = await remoteDatasource.getMultiWinnerYears();
-      return Right(result);
+      return Right(result.map((e) => e.toEntity()).toList());
     } on ServerException {
       return const Left(
         ServerFailure('Server Failure in get multi winner years'),

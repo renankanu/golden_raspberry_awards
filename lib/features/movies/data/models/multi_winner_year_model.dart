@@ -12,4 +12,11 @@ class MultiWinnerYearModel extends MultiWinnerYear {
       wins: json['winnerCount'] as int,
     );
   }
+
+  MultiWinnerYear toEntity() {
+    return MultiWinnerYear(
+      year: year,
+      wins: wins,
+    );
+  }
 }

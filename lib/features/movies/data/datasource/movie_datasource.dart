@@ -2,7 +2,6 @@ import 'package:dio/dio.dart';
 
 import '../../../../core/core.dart';
 import '../models/models.dart';
-import '../models/movie_listings_model.dart';
 
 abstract class MovieDatasource {
   Future<List<MultiWinnerYearModel>> getMultiWinnerYears();
