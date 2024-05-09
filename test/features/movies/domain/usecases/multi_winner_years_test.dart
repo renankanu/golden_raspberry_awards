@@ -1,9 +1,9 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:fpdart/fpdart.dart';
 import 'package:golden_raspberry_awards/core/core.dart';
-import 'package:golden_raspberry_awards/features/dashboard/domain/entities/entities.dart';
-import 'package:golden_raspberry_awards/features/dashboard/domain/repositories/movie_repository.dart';
-import 'package:golden_raspberry_awards/features/dashboard/domain/usecases/multi_winner_years_usecases.dart';
+import 'package:golden_raspberry_awards/features/movies/domain/entities/entities.dart';
+import 'package:golden_raspberry_awards/features/movies/domain/repositories/movie_repository.dart';
+import 'package:golden_raspberry_awards/features/movies/domain/usecases/multi_winner_years_usecases.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 

@@ -3,12 +3,12 @@ import 'package:fpdart/fpdart.dart';
 import '../../../../core/core.dart';
 import '../../domain/entities/entities.dart';
 import '../../domain/repositories/movie_repository.dart';
-import '../datasource/remote_datasource.dart';
+import '../datasource/movie_datasource.dart';
 
-class DashboardRepositoryImpl implements MovieRepository {
-  DashboardRepositoryImpl({required this.remoteDatasource});
+class MovieRepositoryImpl implements MovieRepository {
+  MovieRepositoryImpl({required this.remoteDatasource});
 
-  final RemoteDatasource remoteDatasource;
+  final MovieDatasource remoteDatasource;
 
   @override
   Future<Either<Failure, List<MultiWinnerYear>>> getMultiWinnerYears() async {

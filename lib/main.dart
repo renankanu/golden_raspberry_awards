@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'core/core.dart';
-import 'features/dashboard/presentation/cubit/movies_listings/movies_listings_cubit.dart';
-import 'features/dashboard/presentation/views/core_view.dart';
+import 'features/movies/presentation/cubit/movies_listings/movies_listings_cubit.dart';
+import 'features/movies/presentation/views/core_view.dart';
 import 'injector.dart' as di;
 
 void main() {

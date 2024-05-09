@@ -4,7 +4,7 @@ import '../../../../core/core.dart';
 import '../models/models.dart';
 import '../models/movie_listings_model.dart';
 
-abstract class RemoteDatasource {
+abstract class MovieDatasource {
   Future<List<MultiWinnerYearModel>> getMultiWinnerYears();
   Future<ProducersIntervalVictoriesModel> getProducersIntervalVictories();
   Future<List<MovieModel>> getWinnersByYear(int year);
@@ -17,8 +17,8 @@ abstract class RemoteDatasource {
   });
 }
 
-class RemoteDatasourceImpl implements RemoteDatasource {
-  RemoteDatasourceImpl({required this.dioClient});
+class MovieDatasourceImpl implements MovieDatasource {
+  MovieDatasourceImpl({required this.dioClient});
 
   final Dio dioClient;
 

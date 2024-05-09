@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:golden_raspberry_awards/features/dashboard/data/models/models.dart';
-import 'package:golden_raspberry_awards/features/dashboard/domain/entities/entities.dart';
+import 'package:golden_raspberry_awards/features/movies/data/models/models.dart';
+import 'package:golden_raspberry_awards/features/movies/domain/entities/entities.dart';
 
 import '../../../../_utils/json_reader.dart';
 
