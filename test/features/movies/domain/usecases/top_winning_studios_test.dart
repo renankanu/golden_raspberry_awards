@@ -37,7 +37,7 @@ void main() {
     // act
     final result = await usecase();
     // assert
-    expect(result, Right(tTopWinningStudios));
+    expect(result, equals(Right(tTopWinningStudios)));
     verify(repository.getTopWinningStudios());
     verifyNoMoreInteractions(repository);
   });

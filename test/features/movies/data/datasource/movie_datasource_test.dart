@@ -55,7 +55,8 @@ void main() {
       final result = await datasource.getMultiWinnerYears();
 
       //assert
-      expect(result, tMultiWinnerYearModel);
+      expect(result, isA<List<MultiWinnerYearModel>>());
+      expect(result, equals(tMultiWinnerYearModel));
     });
 
     test('should throw a ServerException when the response code is not 200',
@@ -70,7 +71,6 @@ void main() {
       expect(() => call(), throwsA(isA<ServerException>()));
     });
   });
-
   group('getProducersIntervalVictories', () {
     test('should return a list of ProducerIntervalModel', () async {
       // arrange
@@ -85,7 +85,8 @@ void main() {
       final result = await datasource.getProducersIntervalVictories();
 
       //assert
-      expect(result, tProducersIntervalVictoriesModel);
+      expect(result, isA<ProducersIntervalVictoriesModel>());
+      expect(result, equals(tProducersIntervalVictoriesModel));
     });
 
     test('should throw a ServerException when the response code is not 200',
@@ -116,7 +117,8 @@ void main() {
       final result = await datasource.getWinnersByYear(1);
 
       //assert
-      expect(result, tWinnerByYearModel);
+      expect(result, isA<List<MovieModel>>());
+      expect(result, equals(tWinnerByYearModel));
     });
 
     test('should throw a ServerException when the response code is not 200',
@@ -148,7 +150,8 @@ void main() {
       final result = await datasource.getTopWinningStudios();
 
       //assert
-      expect(result, tTopWinningStudiosModel);
+      expect(result, isA<List<TopWinningStudiosModel>>());
+      expect(result, equals(tTopWinningStudiosModel));
     });
 
     test('should throw a ServerException when the response code is not 200',
@@ -175,7 +178,8 @@ void main() {
       final result = await datasource.getMovies(page: 1, size: 1);
 
       //assert
-      expect(result, tMovieModel);
+      expect(result, isA<MovieListingsModel>());
+      expect(result, equals(tMovieModel));
     });
 
     test('should throw a ServerException when the response code is not 200',

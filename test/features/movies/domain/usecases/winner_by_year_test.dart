@@ -39,7 +39,7 @@ void main() {
     // act
     final result = await usecase(2000);
     // assert
-    expect(result, Right(tWinnersByYear));
+    expect(result, equals(Right(tWinnersByYear)));
     verify(repository.getWinnersByYear(2000));
     verifyNoMoreInteractions(repository);
   });

@@ -45,7 +45,7 @@ void main() {
     // act
     final result = await usecase();
     // assert
-    expect(result, Right(tProducerIntervalVictory));
+    expect(result, equals(Right(tProducerIntervalVictory)));
     verify(repository.getProducersIntervalVictories());
     verifyNoMoreInteractions(repository);
   });

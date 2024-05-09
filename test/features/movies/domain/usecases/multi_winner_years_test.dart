@@ -31,8 +31,8 @@ void main() {
     // act
     final result = await usecase();
     // assert
-    expect(result, Right(tMultiWinnerYear));
     verify(repository.getMultiWinnerYears());
+    expect(result, equals(Right(tMultiWinnerYear)));
     verifyNoMoreInteractions(repository);
   });
 }

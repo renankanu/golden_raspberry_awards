@@ -33,7 +33,7 @@ void main() {
     // act
     final result = await usecase(page: 1, size: 1);
     // assert
-    expect(result, Right(tMoviesListings));
+    expect(result, equals(Right(tMoviesListings)));
     verify(repository.getMovies(page: 1, size: 1));
     verifyNoMoreInteractions(repository);
   });

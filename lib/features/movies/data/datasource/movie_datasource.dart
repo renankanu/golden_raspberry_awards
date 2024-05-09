@@ -62,7 +62,7 @@ class MovieDatasourceImpl implements MovieDatasource {
       Urls.baseUrl,
       queryParameters: {
         'winner': 'true',
-        'year': '$year',
+        'year': year,
       },
     );
     if (response.statusCode == 200) {

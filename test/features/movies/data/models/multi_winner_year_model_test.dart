@@ -37,6 +37,6 @@ void main() {
         .toList();
 
     // assert
-    expect(result, tMultiWinnerYearModel);
+    expect(result, equals(tMultiWinnerYearModel));
   });
 }
