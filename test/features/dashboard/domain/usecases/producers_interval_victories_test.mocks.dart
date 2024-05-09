@@ -114,13 +114,22 @@ class MockMovieRepository extends _i1.Mock implements _i2.MovieRepository {
               .Future<_i4.Either<_i5.Failure, List<_i6.TopWinningStudios>>>);
 
   @override
-  _i3.Future<_i4.Either<_i5.Failure, _i6.MoviesListings>> getMovies(
-          {required int? page}) =>
+  _i3.Future<_i4.Either<_i5.Failure, _i6.MoviesListings>> getMovies({
+    required int? page,
+    required int? size,
+    int? year,
+    bool? isWinner,
+  }) =>
       (super.noSuchMethod(
         Invocation.method(
           #getMovies,
           [],
-          {#page: page},
+          {
+            #page: page,
+            #size: size,
+            #year: year,
+            #isWinner: isWinner,
+          },
         ),
         returnValue:
             _i3.Future<_i4.Either<_i5.Failure, _i6.MoviesListings>>.value(
@@ -129,7 +138,12 @@ class MockMovieRepository extends _i1.Mock implements _i2.MovieRepository {
           Invocation.method(
             #getMovies,
             [],
-            {#page: page},
+            {
+              #page: page,
+              #size: size,
+              #year: year,
+              #isWinner: isWinner,
+            },
           ),
         )),
       ) as _i3.Future<_i4.Either<_i5.Failure, _i6.MoviesListings>>);

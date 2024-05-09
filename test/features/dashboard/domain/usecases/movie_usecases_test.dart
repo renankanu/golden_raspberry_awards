@@ -31,13 +31,13 @@ void main() {
 
   test('should get multi winner years from the repository', () async {
     // arrange
-    when(repository.getMovies(page: 1))
+    when(repository.getMovies(page: 1, size: 1))
         .thenAnswer((_) async => Right(tMoviesListings));
     // act
     final result = await usecase(page: 1, size: 1);
     // assert
     expect(result, Right(tMoviesListings));
-    verify(repository.getMovies(page: 1));
+    verify(repository.getMovies(page: 1, size: 1));
     verifyNoMoreInteractions(repository);
   });
 }
