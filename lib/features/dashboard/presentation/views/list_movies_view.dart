@@ -21,11 +21,7 @@ class ListMoviesView extends StatelessWidget {
           builder: (context, state) {
             return switch (state) {
               MoviesListingsLoading() => const AppIndicator(),
-              MoviesListingsLoaded() => ListMovies(
-                  movies: state.movies,
-                  hasReachedMax:
-                      context.watch<MoviesListingsCubit>().hasReachedMax,
-                ),
+              MoviesListingsLoaded() => ListMovies(movies: state.movies),
               MoviesListingsError() => const Center(child: Text('Error')),
               _ => const SizedBox.shrink()
             };
@@ -40,11 +36,9 @@ class ListMovies extends StatefulWidget {
   const ListMovies({
     super.key,
     required this.movies,
-    required this.hasReachedMax,
   });
 
   final List<Movie> movies;
-  final bool hasReachedMax;
 
   @override
   State<ListMovies> createState() => _ListMoviesState();
@@ -161,7 +155,6 @@ class _ListMoviesState extends State<ListMovies> {
             },
           ),
         ),
-        if (!widget.hasReachedMax) const AppIndicator(),
       ],
     );
   }

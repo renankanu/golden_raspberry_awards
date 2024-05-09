@@ -103,9 +103,6 @@ class RemoteDatasourceImpl implements RemoteDatasource {
     int? year,
     bool? isWinner,
   }) async {
-    dioClient.interceptors.add(LogInterceptor(
-      responseBody: true,
-    ));
     final response = await dioClient.get(
       Urls.baseUrl,
       queryParameters: {
