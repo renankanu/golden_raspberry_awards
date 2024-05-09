@@ -2,14 +2,11 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:fpdart/fpdart.dart';
 import 'package:golden_raspberry_awards/core/core.dart';
 import 'package:golden_raspberry_awards/features/movies/domain/entities/entities.dart';
-import 'package:golden_raspberry_awards/features/movies/domain/repositories/movie_repository.dart';
 import 'package:golden_raspberry_awards/features/movies/domain/usecases/top_winning_studios_usecases.dart';
-import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 
-import 'top_winning_studios_test.mocks.dart';
+import '../../../../_utils/mock/mocks.mocks.dart';
 
-@GenerateMocks([MovieRepository])
 void main() {
   late MockMovieRepository repository;
   late TopWinningStudiosUseCase usecase;

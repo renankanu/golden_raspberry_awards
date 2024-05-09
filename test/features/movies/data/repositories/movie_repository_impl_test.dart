@@ -1,17 +1,14 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:fpdart/fpdart.dart';
 import 'package:golden_raspberry_awards/core/core.dart';
-import 'package:golden_raspberry_awards/features/movies/data/datasource/movie_datasource.dart';
 import 'package:golden_raspberry_awards/features/movies/data/models/models.dart';
 import 'package:golden_raspberry_awards/features/movies/data/models/producer_model.dart';
 import 'package:golden_raspberry_awards/features/movies/data/repositories/movie_repository_impl.dart';
 import 'package:golden_raspberry_awards/features/movies/domain/entities/entities.dart';
-import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 
-import 'movie_repository_impl_test.mocks.dart';
+import '../../../../_utils/mock/mocks.mocks.dart';
 
-@GenerateMocks([MovieDatasource])
 void main() {
   late MockMovieDatasource datasource;
   late final MovieRepositoryImpl repository;

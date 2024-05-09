@@ -3,13 +3,11 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:golden_raspberry_awards/core/core.dart';
 import 'package:golden_raspberry_awards/features/movies/data/datasource/movie_datasource.dart';
 import 'package:golden_raspberry_awards/features/movies/data/models/models.dart';
-import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 
 import '../../../../_utils/json_reader.dart';
-import 'movie_datasource_test.mocks.dart';
+import '../../../../_utils/mock/mocks.mocks.dart';
 
-@GenerateMocks([Dio])
 void main() {
   late MovieDatasourceImpl datasource;
   late MockDio mock;
