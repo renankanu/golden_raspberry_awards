@@ -16,7 +16,7 @@ void main() {
 
   test('should be a subclass of Movie entity', () {
     // assert
-    expect(tWinnerByYearModel.first.toEntity(), isA<Movie>());
+    expect(tWinnerByYearModel, isA<List<Movie>>());
   });
 
   test('should return winners by year model by JSON', () {

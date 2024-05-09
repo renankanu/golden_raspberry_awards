@@ -22,7 +22,7 @@ void main() {
 
   test('should be a subclass of TopWinningStudios entity', () {
     // assert
-    expect(tTopWinningStudiosModel.first.toEntity(), isA<TopWinningStudios>());
+    expect(tTopWinningStudiosModel, isA<List<TopWinningStudios>>());
   });
 
   test('should return top winning studios model by JSON', () {

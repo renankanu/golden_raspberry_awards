@@ -31,12 +31,9 @@ class MovieDatasourceImpl implements MovieDatasource {
     );
     if (response.statusCode == 200) {
       final data = response.data['years'] as List;
-      return data
-          .map(
-            (item) =>
-                MultiWinnerYearModel.fromJson(item as Map<String, dynamic>),
-          )
-          .toList();
+      return data.map((item) {
+        return MultiWinnerYearModel.fromJson(item as Map<String, dynamic>);
+      }).toList();
     } else {
       throw ServerException();
     }

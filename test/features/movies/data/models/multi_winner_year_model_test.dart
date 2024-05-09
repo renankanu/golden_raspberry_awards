@@ -22,7 +22,7 @@ void main() {
 
   test('should be a subclass of MultiWinnerYear entity', () {
     // assert
-    expect(tMultiWinnerYearModel.first.toEntity(), isA<MultiWinnerYear>());
+    expect(tMultiWinnerYearModel, isA<List<MultiWinnerYear>>());
   });
 
   test('should return multi winner model by JSON', () {

@@ -14,7 +14,7 @@ class MovieRepositoryImpl implements MovieRepository {
   Future<Either<Failure, List<MultiWinnerYear>>> getMultiWinnerYears() async {
     try {
       final result = await remoteDatasource.getMultiWinnerYears();
-      return Right(result.map((e) => e.toEntity()).toList());
+      return Right(result);
     } on ServerException {
       return const Left(
         ServerFailure('Server Failure in get multi winner years'),
@@ -27,7 +27,7 @@ class MovieRepositoryImpl implements MovieRepository {
       getProducersIntervalVictories() async {
     try {
       final result = await remoteDatasource.getProducersIntervalVictories();
-      return Right(result.toEntity());
+      return Right(result);
     } on ServerException {
       return const Left(
         ServerFailure('Server Failure in get producers interval victories'),
@@ -40,7 +40,7 @@ class MovieRepositoryImpl implements MovieRepository {
       getTopWinningStudios() async {
     try {
       final result = await remoteDatasource.getTopWinningStudios();
-      return Right(result.map((e) => e.toEntity()).toList());
+      return Right(result);
     } on ServerException {
       return const Left(
         ServerFailure('Server Failure in get top winning studios'),
@@ -54,7 +54,7 @@ class MovieRepositoryImpl implements MovieRepository {
   ) async {
     try {
       final result = await remoteDatasource.getWinnersByYear(year);
-      return Right(result.map((e) => e.toEntity()).toList());
+      return Right(result);
     } on ServerException {
       return const Left(ServerFailure('Server Failure in get winners by year'));
     }
@@ -74,7 +74,7 @@ class MovieRepositoryImpl implements MovieRepository {
         year: year,
         isWinner: isWinner,
       );
-      return Right(result.toEntity());
+      return Right(result);
     } on ServerException {
       return const Left(ServerFailure('Server Failure in get movies'));
     }

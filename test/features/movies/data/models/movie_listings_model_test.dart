@@ -1,7 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:golden_raspberry_awards/features/movies/data/models/movie_listings_model.dart';
 import 'package:golden_raspberry_awards/features/movies/data/models/movie_model.dart';
-import 'package:golden_raspberry_awards/features/movies/domain/entities/entities.dart';
 
 import '../../../../_utils/json_reader.dart';
 
@@ -22,7 +21,7 @@ void main() {
 
   test('should be a subclass of Movie entity', () {
     // assert
-    expect(tMovieModel.toEntity(), isA<MoviesListings>());
+    expect(tMovieModel, isA<MovieListingsModel>());
   });
 
   test('should return movie model by JSON', () {

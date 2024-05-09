@@ -16,13 +16,4 @@ class ProducerModel extends Producer {
       previousWin: json['previousWin'] as int,
     );
   }
-
-  Producer toEntity() {
-    return Producer(
-      producer: producer,
-      interval: interval,
-      followingWin: followingWin,
-      previousWin: previousWin,
-    );
-  }
 }

@@ -27,10 +27,7 @@ void main() {
 
   test('should be a subclass of ProducersIntervalWins entity', () {
     // assert
-    expect(
-      tProducersIntervalVictoriesModel.toEntity(),
-      isA<ProducersIntervalWins>(),
-    );
+    expect(tProducersIntervalVictoriesModel, isA<ProducersIntervalWins>());
   });
 
   test('should return producers interval victories model by JSON', () {
