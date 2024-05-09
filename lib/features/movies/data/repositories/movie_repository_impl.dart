@@ -27,7 +27,7 @@ class MovieRepositoryImpl implements MovieRepository {
       getProducersIntervalVictories() async {
     try {
       final result = await remoteDatasource.getProducersIntervalVictories();
-      return Right(result);
+      return Right(result.toEntity());
     } on ServerException {
       return const Left(
         ServerFailure('Server Failure in get producers interval victories'),
@@ -40,7 +40,7 @@ class MovieRepositoryImpl implements MovieRepository {
       getTopWinningStudios() async {
     try {
       final result = await remoteDatasource.getTopWinningStudios();
-      return Right(result);
+      return Right(result.map((e) => e.toEntity()).toList());
     } on ServerException {
       return const Left(
         ServerFailure('Server Failure in get top winning studios'),
@@ -54,7 +54,7 @@ class MovieRepositoryImpl implements MovieRepository {
   ) async {
     try {
       final result = await remoteDatasource.getWinnersByYear(year);
-      return Right(result);
+      return Right(result.map((e) => e.toEntity()).toList());
     } on ServerException {
       return const Left(ServerFailure('Server Failure in get winners by year'));
     }
@@ -74,7 +74,7 @@ class MovieRepositoryImpl implements MovieRepository {
         year: year,
         isWinner: isWinner,
       );
-      return Right(result);
+      return Right(result.toEntity());
     } on ServerException {
       return const Left(ServerFailure('Server Failure in get movies'));
     }

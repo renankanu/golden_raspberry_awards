@@ -1,11 +1,16 @@
+import 'package:equatable/equatable.dart';
+
 import '../../domain/entities/entities.dart';
 import 'producer_model.dart';
 
-class ProducersIntervalVictoriesModel extends ProducersIntervalWins {
+class ProducersIntervalVictoriesModel extends Equatable {
   const ProducersIntervalVictoriesModel({
-    required super.min,
-    required super.max,
+    required this.min,
+    required this.max,
   });
+
+  final List<ProducerModel> min;
+  final List<ProducerModel> max;
 
   factory ProducersIntervalVictoriesModel.fromJson(Map<String, dynamic> json) {
     return ProducersIntervalVictoriesModel(
@@ -17,4 +22,14 @@ class ProducersIntervalVictoriesModel extends ProducersIntervalWins {
           .toList(),
     );
   }
+
+  ProducersIntervalWins toEntity() {
+    return ProducersIntervalWins(
+      min: min.map((e) => e.toEntity()).toList(),
+      max: max.map((e) => e.toEntity()).toList(),
+    );
+  }
+
+  @override
+  List<Object?> get props => [min, max];
 }
