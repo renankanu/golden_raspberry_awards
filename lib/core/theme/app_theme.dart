@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../core.dart';
 
 final ThemeData appTheme = ThemeData(
@@ -10,6 +11,19 @@ final ThemeData appTheme = ThemeData(
   dividerTheme: const DividerThemeData(
     color: AppColors.mineShaft,
     thickness: 0.5,
+  ),
+  elevatedButtonTheme: ElevatedButtonThemeData(
+    style: ButtonStyle(
+      backgroundColor: MaterialStateProperty.all(AppColors.creamCan),
+      foregroundColor: MaterialStateProperty.all(AppColors.mineShaft),
+    ),
+  ),
+  dialogTheme: const DialogTheme(
+    backgroundColor: Colors.white,
+    surfaceTintColor: Colors.white,
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.all(Radius.circular(8)),
+    ),
   ),
   textSelectionTheme: const TextSelectionThemeData(
     cursorColor: AppColors.mineShaft,

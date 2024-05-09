@@ -68,7 +68,12 @@ class DashboardRepositoryImpl implements MovieRepository {
     bool? isWinner,
   }) async {
     try {
-      final result = await remoteDatasource.getMovies(page: page, size: size);
+      final result = await remoteDatasource.getMovies(
+        page: page,
+        size: size,
+        year: year,
+        isWinner: isWinner,
+      );
       return Right(result);
     } on ServerException {
       return const Left(ServerFailure('Server Failure in get movies'));

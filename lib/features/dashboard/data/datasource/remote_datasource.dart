@@ -24,9 +24,12 @@ class RemoteDatasourceImpl implements RemoteDatasource {
 
   @override
   Future<List<MultiWinnerYearModel>> getMultiWinnerYears() async {
-    final response = await dioClient.get(Urls.baseUrl, queryParameters: {
-      'projection': 'years-with-multiple-winners',
-    });
+    final response = await dioClient.get(
+      Urls.baseUrl,
+      queryParameters: {
+        'projection': 'years-with-multiple-winners',
+      },
+    );
     if (response.statusCode == 200) {
       final data = response.data['years'] as List;
       return data
@@ -43,9 +46,12 @@ class RemoteDatasourceImpl implements RemoteDatasource {
   @override
   Future<ProducersIntervalVictoriesModel>
       getProducersIntervalVictories() async {
-    final response = await dioClient.get(Urls.baseUrl, queryParameters: {
-      'projection': 'max-min-win-interval-for-producers',
-    });
+    final response = await dioClient.get(
+      Urls.baseUrl,
+      queryParameters: {
+        'projection': 'max-min-win-interval-for-producers',
+      },
+    );
     if (response.statusCode == 200) {
       final json = response.data as Map<String, dynamic>;
       return ProducersIntervalVictoriesModel.fromJson(json);
@@ -108,8 +114,8 @@ class RemoteDatasourceImpl implements RemoteDatasource {
       queryParameters: {
         'page': page,
         'size': size,
-        if (year != null) 'year': '$year',
-        if (isWinner != null) 'winner': '$isWinner',
+        if (year != null) 'year': year,
+        if (isWinner != null) 'winner': isWinner,
       },
     );
     if (response.statusCode == 200) {

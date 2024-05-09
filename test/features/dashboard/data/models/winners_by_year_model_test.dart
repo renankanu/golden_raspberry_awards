@@ -10,7 +10,8 @@ void main() {
       id: 1,
       year: 2024,
       title: 'The Batman',
-    )
+      isWinner: true,
+    ),
   ];
 
   test('should be a subclass of Movie entity', () {

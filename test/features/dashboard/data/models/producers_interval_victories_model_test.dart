@@ -13,7 +13,7 @@ void main() {
         interval: 1,
         previousWin: 2000,
         followingWin: 2001,
-      )
+      ),
     ],
     max: [
       ProducerModel(
@@ -21,7 +21,7 @@ void main() {
         interval: 2,
         previousWin: 2000,
         followingWin: 2002,
-      )
+      ),
     ],
   );
 
@@ -35,7 +35,8 @@ void main() {
     final jsonMap = jsonReader('max-min-win-interval-for-producers.json');
     // act
     final result = ProducersIntervalVictoriesModel.fromJson(
-        jsonMap as Map<String, dynamic>);
+      jsonMap as Map<String, dynamic>,
+    );
     // assert
     expect(result, tProducersIntervalVictoriesModel);
   });
