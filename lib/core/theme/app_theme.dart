@@ -49,6 +49,18 @@ final ThemeData appTheme = ThemeData(
         width: 0.5,
       ),
     ),
+    errorBorder: OutlineInputBorder(
+      borderSide: BorderSide(
+        color: AppColors.cinnabar,
+        width: 0.5,
+      ),
+    ),
+    focusedErrorBorder: OutlineInputBorder(
+      borderSide: BorderSide(
+        color: AppColors.cinnabar,
+        width: 0.5,
+      ),
+    ),
   ),
   textTheme: const TextTheme(
     displayLarge: TextStyle(
