@@ -14,5 +14,5 @@ class Movie extends Equatable {
   final bool isWinner;
 
   @override
-  List<Object?> get props => [id, year, title];
+  List<Object?> get props => [id, year, title, isWinner];
 }

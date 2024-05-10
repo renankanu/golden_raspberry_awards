@@ -1,4 +1,5 @@
 import 'package:equatable/equatable.dart';
+
 import 'producer.dart';
 
 class ProducersIntervalWins extends Equatable {
@@ -11,8 +12,5 @@ class ProducersIntervalWins extends Equatable {
   final List<Producer> max;
 
   @override
-  List<Object?> get props => [
-        min,
-        max,
-      ];
+  List<Object?> get props => [min, max];
 }

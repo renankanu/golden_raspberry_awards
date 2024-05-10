@@ -175,7 +175,12 @@ void main() {
 
       setUpMockDioSuccess200(jsonMap);
       //act
-      final result = await datasource.getMovies(page: 1, size: 1);
+      final result = await datasource.getMovies(
+        page: 1,
+        size: 1,
+        year: 2021,
+        isWinner: true,
+      );
 
       //assert
       expect(result, isA<MovieListingsModel>());
@@ -191,7 +196,15 @@ void main() {
       final call = datasource.getMovies;
 
       //assert
-      expect(() => call(page: 1, size: 1), throwsA(isA<ServerException>()));
+      expect(
+        () => call(
+          page: 1,
+          size: 1,
+          year: 2021,
+          isWinner: true,
+        ),
+        throwsA(isA<ServerException>()),
+      );
     });
   });
 }

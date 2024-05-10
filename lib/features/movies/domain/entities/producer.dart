@@ -14,10 +14,5 @@ class Producer extends Equatable {
   final int previousWin;
 
   @override
-  List<Object?> get props => [
-        producer,
-        interval,
-        followingWin,
-        previousWin,
-      ];
+  List<Object?> get props => [producer, interval, followingWin, previousWin];
 }

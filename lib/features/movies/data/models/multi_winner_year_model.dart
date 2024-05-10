@@ -12,7 +12,4 @@ class MultiWinnerYearModel extends MultiWinnerYear {
       wins: json['winnerCount'] as int,
     );
   }
-
-  @override
-  List<Object?> get props => [year, wins];
 }
