@@ -10,7 +10,7 @@ class MoviesListingsCubit extends Cubit<MoviesListingsState> {
   MoviesListingsCubit(this.movieUsecases)
       : super(const MoviesListingsInitial());
 
-  final MovieUsecases movieUsecases;
+  final MovieUsecase movieUsecases;
 
   int _page = 0;
   int? _year;

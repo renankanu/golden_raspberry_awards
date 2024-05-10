@@ -110,6 +110,7 @@ void main() {
           ),
         ),
       );
+      expect(result.isLeft(), true);
     });
   });
 
@@ -143,9 +144,7 @@ void main() {
         result,
         equals(
           const Left(
-            ServerFailure(
-              'Server Failure in get producers interval victories',
-            ),
+            ServerFailure('Server Failure in get producers interval victories'),
           ),
         ),
       );
@@ -216,9 +215,7 @@ void main() {
       expect(
         result,
         equals(
-          const Left(
-            ServerFailure('Server Failure in get winners by year'),
-          ),
+          const Left(ServerFailure('Server Failure in get winners by year')),
         ),
       );
     });

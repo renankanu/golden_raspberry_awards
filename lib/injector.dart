@@ -35,7 +35,7 @@ void init() {
       () => WinnerByYearUseCase(injector()),
     )
     ..registerLazySingleton(
-      () => MovieUsecases(injector()),
+      () => MovieUsecase(injector()),
     )
 
     //repositories

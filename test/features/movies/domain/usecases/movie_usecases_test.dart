@@ -9,14 +9,21 @@ import '../../../../_utils/mock/mocks.mocks.dart';
 
 void main() {
   late MockMovieRepository repository;
-  late MovieUsecases usecase;
+  late MovieUsecase usecase;
   late final MoviesListings tMoviesListings;
 
   setUp(() {
     repository = MockMovieRepository();
-    usecase = MovieUsecases(repository);
+    usecase = MovieUsecase(repository);
     tMoviesListings = const MoviesListings(
-      movies: [],
+      movies: [
+        Movie(
+          id: 1,
+          year: 2000,
+          title: 'Batman',
+          isWinner: true,
+        ),
+      ],
       page: 1,
       totalPages: 1,
       totalElements: 1,

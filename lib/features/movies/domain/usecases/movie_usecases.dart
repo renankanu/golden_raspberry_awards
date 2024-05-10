@@ -4,10 +4,10 @@ import '../../../../core/core.dart';
 import '../entities/entities.dart';
 import '../repositories/movie_repository.dart';
 
-class MovieUsecases {
+class MovieUsecase {
   final MovieRepository movieRepository;
 
-  MovieUsecases(this.movieRepository);
+  MovieUsecase(this.movieRepository);
 
   Future<Either<Failure, MoviesListings>> call({
     required int page,
