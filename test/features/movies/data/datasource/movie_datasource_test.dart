@@ -65,10 +65,10 @@ void main() {
       setUpMockDioError404();
 
       //act
-      final call = datasource.getMultiWinnerYears;
+      final result = datasource.getMultiWinnerYears();
 
       //assert
-      expect(() => call(), throwsA(isA<ServerException>()));
+      expect(() => result, throwsA(isInstanceOf<ServerException>()));
     });
   });
   group('getProducersIntervalVictories', () {
@@ -95,10 +95,10 @@ void main() {
       setUpMockDioError404();
 
       //act
-      final call = datasource.getProducersIntervalVictories;
+      final result = datasource.getProducersIntervalVictories();
 
       //assert
-      expect(() => call(), throwsA(isA<ServerException>()));
+      expect(() => result, throwsA(isInstanceOf<ServerException>()));
     });
   });
   group('getWinnersByYear', () {
@@ -127,10 +127,10 @@ void main() {
       setUpMockDioError404();
 
       //act
-      final call = datasource.getWinnersByYear;
+      final result = datasource.getWinnersByYear(1);
 
       //assert
-      expect(() => call(1), throwsA(isA<ServerException>()));
+      expect(() => result, throwsA(isInstanceOf<ServerException>()));
     });
   });
   group('getTopWinningStudios', () {
@@ -160,10 +160,10 @@ void main() {
       setUpMockDioError404();
 
       //act
-      final call = datasource.getTopWinningStudios;
+      final result = datasource.getTopWinningStudios();
 
       //assert
-      expect(() => call(), throwsA(isA<ServerException>()));
+      expect(() => result, throwsA(isInstanceOf<ServerException>()));
     });
   });
   group('getMovies', () {
@@ -193,18 +193,15 @@ void main() {
       setUpMockDioError404();
 
       //act
-      final call = datasource.getMovies;
+      final result = datasource.getMovies(
+        page: 1,
+        size: 1,
+        year: 2021,
+        isWinner: true,
+      );
 
       //assert
-      expect(
-        () => call(
-          page: 1,
-          size: 1,
-          year: 2021,
-          isWinner: true,
-        ),
-        throwsA(isA<ServerException>()),
-      );
+      expect(() => result, throwsA(isInstanceOf<ServerException>()));
     });
   });
 }
