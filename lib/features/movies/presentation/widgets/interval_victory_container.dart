@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../core/constants/app_colors.dart';
+import '../../../../core/core.dart';
+import '../../../../core/extensions/context_extension.dart';
 import '../../domain/entities/producer.dart';
 import '../cubit/producers_interval_wins/producers_interval_wins_cubit.dart';
 import 'section_title.dart';
@@ -19,8 +20,7 @@ class IntervalVictoryContainer extends StatelessWidget {
             const SectionTitle(title: 'Intervalo entre prêmios'),
             const SizedBox(height: 24),
             switch (state) {
-              ProducersIntervalWinsLoading() =>
-                const CircularProgressIndicator(),
+              ProducersIntervalWinsLoading() => const AppIndicator(),
               ProducersIntervalWinsLoaded() => Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -66,9 +66,10 @@ class IntervalWidget extends StatelessWidget {
       children: [
         Text(title, style: const TextStyle(fontSize: 16)),
         const SizedBox(height: 8),
-        DecoratedBox(
+        Container(
+          constraints: const BoxConstraints(minWidth: 260),
           decoration: BoxDecoration(
-            color: Theme.of(context).colorScheme.primary,
+            color: context.colorScheme.primary,
             borderRadius: BorderRadius.circular(8),
           ),
           child: Padding(
@@ -79,18 +80,11 @@ class IntervalWidget extends StatelessWidget {
                 RichText(
                   text: TextSpan(
                     text: 'Produtor: ',
-                    style: const TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w600,
-                      color: AppColors.mineShaft,
-                    ),
+                    style: context.textTheme.displayMedium,
                     children: [
                       TextSpan(
                         text: item.producer,
-                        style: const TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w400,
-                        ),
+                        style: context.textTheme.bodyLarge,
                       ),
                     ],
                   ),
@@ -99,18 +93,11 @@ class IntervalWidget extends StatelessWidget {
                 RichText(
                   text: TextSpan(
                     text: '${item.previousWin} - ${item.followingWin}',
-                    style: const TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w600,
-                      color: AppColors.mineShaft,
-                    ),
+                    style: context.textTheme.displayMedium,
                     children: [
                       TextSpan(
                         text: ' ($getInterval)',
-                        style: const TextStyle(
-                          fontSize: 12,
-                          fontWeight: FontWeight.w400,
-                        ),
+                        style: context.textTheme.bodyMedium,
                       ),
                     ],
                   ),

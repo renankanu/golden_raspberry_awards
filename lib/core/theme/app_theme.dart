@@ -71,5 +71,10 @@ final ThemeData appTheme = ThemeData(
       fontWeight: FontWeight.w400,
       color: AppColors.mineShaft,
     ),
+    titleMedium: TextStyle(
+      fontSize: 16,
+      fontWeight: FontWeight.bold,
+      color: AppColors.mineShaft,
+    ),
   ),
 );

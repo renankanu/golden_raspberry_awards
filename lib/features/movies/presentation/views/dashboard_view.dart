@@ -5,8 +5,20 @@ import '../widgets/search_winner_year_container.dart';
 import '../widgets/top_studios_container.dart';
 import '../widgets/year_multi_winner_container.dart';
 
-class DashboardView extends StatelessWidget {
+class DashboardView extends StatefulWidget {
   const DashboardView({super.key});
+
+  @override
+  State<DashboardView> createState() => _DashboardViewState();
+}
+
+class _DashboardViewState extends State<DashboardView> {
+  final scrollController = ScrollController();
+
+  Future<void> _scrollToBottom() async {
+    await Future.delayed(const Duration(milliseconds: 200));
+    scrollController.jumpTo(scrollController.position.maxScrollExtent);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -14,18 +26,21 @@ class DashboardView extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Dashboard'),
       ),
-      body: const SingleChildScrollView(
-        padding: EdgeInsets.symmetric(horizontal: 16),
+      body: SingleChildScrollView(
+        controller: scrollController,
+        padding: const EdgeInsets.fromLTRB(16, 0, 16, 32),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            YearMultiWinnerContainer(),
-            Separator(),
-            TopStudiosContainer(),
-            Separator(),
-            IntervalVictoryContainer(),
-            Separator(),
-            SearchWinnerYearContainer(),
+            const YearMultiWinnerContainer(),
+            const Separator(),
+            const TopStudiosContainer(),
+            const Separator(),
+            const IntervalVictoryContainer(),
+            const Separator(),
+            SearchWinnerYearContainer(
+              onSearched: _scrollToBottom,
+            ),
           ],
         ),
       ),

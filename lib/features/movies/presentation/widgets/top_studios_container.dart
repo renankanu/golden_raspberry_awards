@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../core/core.dart';
+import '../../../../core/extensions/context_extension.dart';
 import '../../domain/entities/entities.dart';
 import '../cubit/top_studio_awards/top_studio_awards_cubit.dart';
 import 'section_title.dart';
@@ -20,12 +22,10 @@ class TopStudiosContainer extends StatelessWidget {
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const SectionTitle(
-              title: 'Estúdios com mais prêmios',
-            ), // Add this line
+            const SectionTitle(title: 'Estúdios com mais prêmios'),
             const SizedBox(height: 12),
             switch (state) {
-              TopStudioAwardsLoading() => const CircularProgressIndicator(),
+              TopStudioAwardsLoading() => const AppIndicator(),
               TopStudioAwardsLoaded() => Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: _getTopStudios(state.topStudioAwards).map((item) {
@@ -34,14 +34,17 @@ class TopStudiosContainer extends StatelessWidget {
                       padding: const EdgeInsets.all(16),
                       margin: const EdgeInsets.all(8),
                       decoration: BoxDecoration(
-                        color: Theme.of(context).colorScheme.primary,
+                        color: context.colorScheme.primary,
                         borderRadius: BorderRadius.circular(8),
                       ),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text('🎭 ${item.studio}'),
-                          Text('🎬 ${item.wins} filmes'),
+                          Text(
+                            item.studio,
+                            style: context.textTheme.titleMedium,
+                          ),
+                          Text('${item.wins} filmes'),
                         ],
                       ),
                     );

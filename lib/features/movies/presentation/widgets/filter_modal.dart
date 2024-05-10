@@ -84,15 +84,7 @@ void showFilterModal(BuildContext context) {
                       const SizedBox(width: 8),
                       ElevatedButton(
                         onPressed: () {
-                          context.read<MoviesListingsCubit>().filterMovies(
-                                year: yearController.text.isNotEmpty
-                                    ? int.parse(yearController.text)
-                                    : null,
-                                isWinner: selectedIndex == 1
-                                    ? true
-                                    : (selectedIndex == 2 ? false : null),
-                              );
-                          Navigator.pop(context);
+                          _onFilter(context, yearController, selectedIndex);
                         },
                         child: const Text(
                           'Filtrar',
@@ -108,6 +100,22 @@ void showFilterModal(BuildContext context) {
       );
     },
   );
+}
+
+void _onFilter(
+  BuildContext context,
+  TextEditingController yearController,
+  int selectedIndex,
+) {
+  final year =
+      yearController.text.isNotEmpty ? int.parse(yearController.text) : null;
+  final isWinner =
+      selectedIndex == 1 ? true : (selectedIndex == 2 ? false : null);
+  context.read<MoviesListingsCubit>().filterMovies(
+        year: year,
+        isWinner: isWinner,
+      );
+  Navigator.pop(context);
 }
 
 class LabelToggle extends StatelessWidget {

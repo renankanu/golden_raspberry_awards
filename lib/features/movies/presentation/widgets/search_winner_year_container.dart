@@ -7,7 +7,8 @@ import '../cubit/search_by_year/search_by_year_cubit.dart';
 import 'section_title.dart';
 
 class SearchWinnerYearContainer extends StatelessWidget {
-  const SearchWinnerYearContainer({super.key});
+  const SearchWinnerYearContainer({super.key, required this.onSearched});
+  final VoidCallback onSearched;
 
   @override
   Widget build(BuildContext context) {
@@ -28,6 +29,7 @@ class SearchWinnerYearContainer extends StatelessWidget {
                 context.read<SearchByYearCubit>().getWinnerByYear(
                       int.parse(yearText.text),
                     );
+                onSearched();
               },
               icon: const Icon(Icons.search),
             ),
@@ -36,10 +38,11 @@ class SearchWinnerYearContainer extends StatelessWidget {
         const SizedBox(height: 12),
         BlocBuilder<SearchByYearCubit, SearchByYearState>(
           builder: (context, state) {
+            if (state is SearchByYearLoaded) {
+              onSearched();
+            }
             return switch (state) {
-              SearchByYearLoading() => const Center(
-                  child: CircularProgressIndicator(),
-                ),
+              SearchByYearLoading() => const AppIndicator(),
               SearchByYearLoaded() => state.moviesWinner.isEmpty
                   ? const Padding(
                       padding: EdgeInsets.fromLTRB(0, 8, 0, 16),
