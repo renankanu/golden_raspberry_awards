@@ -97,3 +97,15 @@ make run_cov
 ```
 
 <img src="assets/readme/cov_test.png" />
+
+## Execução
+
+Para rodar o projeto, basta rodar o comando:
+
+```bash
+flutter run
+```
+
+## Autor
+
+RenanKanu - [Meu Site](https://renankanu.com.br)
