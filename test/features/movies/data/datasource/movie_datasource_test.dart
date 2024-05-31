@@ -32,7 +32,7 @@ void main() {
     when(mock.get(any, queryParameters: anyNamed('queryParameters')))
         .thenAnswer(
       (_) async => Response(
-        statusCode: 500,
+        statusCode: 404,
         requestOptions: RequestOptions(),
       ),
     );

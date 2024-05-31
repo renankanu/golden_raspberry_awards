@@ -9,6 +9,7 @@ help: ## Show this help.
 run_cov: ## Run coverage tests and open the report
 	@echo "Running coverage tests..."
 	@flutter test --coverage
+	@lcov --remove coverage/lcov.info 'lib/core/theme/*' -o coverage/lcov.info
 	@genhtml coverage/lcov.info -o coverage/html
 	@open coverage/html/index.html
 	@echo "Coverage tests done!"

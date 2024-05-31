@@ -104,10 +104,8 @@ void main() {
       verify(datasource.getMultiWinnerYears());
       expect(
         result,
-        equals(
-          const Left(
-            ServerFailure('Server Failure in get multi winner years'),
-          ),
+        const Left(
+          ServerFailure('Server Failure in get multi winner years'),
         ),
       );
       expect(result.isLeft(), true);
