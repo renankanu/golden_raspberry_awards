@@ -33,17 +33,19 @@ O design foi adaptado para o mobile, para facilitar a visualização e a navega�
 
 ## Tecnologias e Dependências
 
-- [Flutter](https://flutter.dev/)
-- [Dio](https://pub.dev/packages/dio)
-- [Equatable](https://pub.dev/packages/equatable)
-- [Flutter Bloc](https://pub.dev/packages/flutter_bloc)
-- [Fpdart](https://pub.dev/packages/fpdart)
-- [GetIt](https://pub.dev/packages/get_it)
+- [Flutter](https://flutter.dev/) - Framework de desenvolvimento multiplataforma
+- [Dio](https://pub.dev/packages/dio) - Cliente HTTP
+- [Equatable](https://pub.dev/packages/equatable) - Comparação de objetos
+- [Flutter Bloc](https://pub.dev/packages/flutter_bloc) - Gerenciamento de estado
+- [Fpdart](https://pub.dev/packages/fpdart) - Programação funcional
+- [GetIt](https://pub.dev/packages/get_it) - Injeção de dependência
+
+Dependências foi utilizada pelo conforto e praticidade que elas oferecem para o desenvolvimento do projeto.
 
 Para os testes:
 
-- [Bloc Test](https://pub.dev/packages/bloc_test)
-- [Mockito](https://pub.dev/packages/mockito)
+- [Bloc Test](https://pub.dev/packages/bloc_test) - Testes do Bloc
+- [Mockito](https://pub.dev/packages/mockito) - Mocks para testes
 
 Para a instalação das dependências, basta rodar o comando:
 
@@ -88,6 +90,8 @@ Para rodar os testes, basta rodar o comando:
 flutter test
 ```
 
+Essa é a saída esperada:
+
 <img src="assets/readme/unit_test.png" />
 
 Para rodar o teste com coverage e abrir o relatório no navegador, basta rodar o comando:
@@ -96,11 +100,15 @@ Para rodar o teste com coverage e abrir o relatório no navegador, basta rodar o
 make run_cov
 ```
 
+Esse comando foi criado para facilitar a execução dos testes com coverage. Utilizei o Makefile para criar esse comando.
+
+Essa é a saída esperada:
+
 <img src="assets/readme/cov_test.png" />
 
 ## Execução
 
-Para rodar o projeto, basta rodar o comando:
+Para rodar o projeto, basta rodar o comando abaixo, ou utilizar o seu editor de código preferido. Eu utilizei o VsCode.
 
 ```bash
 flutter run
@@ -108,4 +116,4 @@ flutter run
 
 ## Autor
 
-RenanKanu - [Meu Site](https://renankanu.com.br)
+Renan Santos de Oliveira - [Meu Site](https://renankanu.com.br)
