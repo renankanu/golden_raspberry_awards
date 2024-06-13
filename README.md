@@ -4,7 +4,7 @@
 
 ## Descrição
 
-Golden Raspberry Awards é um APP que lista os indicados e vencedores da categoria **Pior Filme**. App é um teste para a[ TEXO IT](https://www.texoit.com)
+Golden Raspberry Awards é um APP que lista os indicados e vencedores da categoria **Pior Filme**
 
 ## Requisitos Funcionais
 
